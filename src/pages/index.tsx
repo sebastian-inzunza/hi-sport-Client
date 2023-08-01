@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Head from 'next/head'
 
 import Carousel from '../components/carousel'
 import img from '../assets/images/HS_Sitio_contruccion.png'
@@ -14,15 +15,28 @@ const videos = [
 
 export default function Home() {
   return (
-    <main className={`flex min-h-screen flex-col items-center align-middle justify-center ${inter.className}`}>
-      <Image className='w-screen h-auto' src='https://sissamx.com.mx/hi-sports/images/home/construction.png' alt='bajo construccion' width={1024} height={1024} priority />
-      <div className='p-[10%]'>
-        <Carousel>
-          {videos.map((video) => (
-            <video className='w-screen h-auto' src={video} key={video} autoPlay loop muted />
-          ))}
-        </Carousel>
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>Hi Sports!</title>
+        <meta name='description' content='Hi Sports. En pretemporada' />
+      </Head>
+      <main className={`flex min-h-screen flex-col items-center align-middle justify-center ${inter.className}`}>
+        <Image
+          className='w-screen h-auto'
+          src='https://sissamx.com.mx/hi-sports/images/home/construction.png'
+          alt='bajo construccion'
+          width={1024}
+          height={1024}
+          priority
+        />
+        <div className='p-[10%]'>
+          <Carousel>
+            {videos.map((video) => (
+              <video className='w-screen h-auto' src={video} key={video} autoPlay loop muted />
+            ))}
+          </Carousel>
+        </div>
+      </main>
+    </>
   )
 }
