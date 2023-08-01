@@ -25,7 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 
-  background-image: url('../assets/background/bg-web.jpeg');
+  background-image: url('../assets/background/bg.png');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
