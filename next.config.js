@@ -9,7 +9,8 @@ const nextConfig = {
         hostname: 'sissamx.com.mx',
         pathname: '/hi-sports/images/**'
       }
-    ]
+    ],
+    unoptimized: true,
   }
 }
 
