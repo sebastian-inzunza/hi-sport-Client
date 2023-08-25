@@ -8,7 +8,7 @@ function Home() {
         <title>Hi Sports! - Admin</title>
         <meta name='description' content='Hi Sports. Administrador' />
       </Head>
-      <div>Home test</div>
+      <div>Home</div>
     </>
   )
 }
