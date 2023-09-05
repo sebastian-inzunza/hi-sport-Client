@@ -1,35 +1,24 @@
-import Image from 'next/image'
-import { Bebas_Neue } from 'next/font/google'
-import Head from 'next/head'
-
-import Carousel from '../components/carousel'
-
-const bebas = Bebas_Neue({ weight: '400', preload: false })
-
-const videos = [
-  'https://sissamx.com.mx/hi-sports/videos/05.mp4',
-  'https://sissamx.com.mx/hi-sports/videos/06.mp4',
-  'https://sissamx.com.mx/hi-sports/videos/07.mp4'
-]
+import Head from 'next/head';
+import { Col } from 'antd';
+import HeaderContainer from '@/components/header/headerContainer';
+import ContentContainer from '@/components/content/contentContainer';
+import ProgramacionContainer from '@/components/content/programacionContainer';
+import BreakingNewsContainer from '../components/content/breakingNewsContainer';
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Hi! Sports</title>
-        <meta name='description' content='Hi Sports. En pretemporada' />
-        <meta property='og:image' content='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' />
+    return (
+        <>
+            <Head>
+                <title>Hi! Sports</title>
+                <meta name='description' content='Hi Sports. #TODO ES POSIBLE' />
+                <meta property='og:image' content='favicon.ico' />
 
-        <meta name='twitter:title' content='Hi! Sports' />
-        <meta name='twitter:description' content='Hi Sports. En pretemporada' />
-        <meta name='twitter:image' content='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' />
-        <meta name='twitter:card' content='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' />
-      </Head>
-      <main
-        className={
-          'flex min-h-screen flex-col items-center align-middle justify-center bg-example-bg bg-cover bg-center bg-fixed'
-        }
-      >
+                <meta name='twitter:title' content='Hi! Sports' />
+                <meta name='twitter:description' content='Hi Sports. #TODO ES POSIBLE' />
+                <meta name='twitter:image' content='favicon.ico' />
+                <meta name='twitter:card' content='favicon.ico' />
+            </Head>
+            {/* 
         <h1 className={`text-[4rem] md:text-[6rem] ${bebas.className} text-font`}>en pretemporada</h1>
 
         <div className='pl-[2%] pr-[2%] lg:pl-[10%] lg:pr-[10%] block lg:flex justify-between items-strech'>
@@ -88,8 +77,20 @@ export default function Home() {
               priority
             />
           </a>
-        </div>
-      </main>
-    </>
-  )
+        </div>*/}
+            <div className='background-image' />
+            <HeaderContainer />
+            <ContentContainer />
+            <ProgramacionContainer />
+            <BreakingNewsContainer />
+            <Col xs={0} md={24}>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </Col>
+        </>
+    );
 }

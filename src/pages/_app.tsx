@@ -1,6 +1,17 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import React from 'react';
+import { ConfigProvider } from 'antd';
+import {NextUIProvider} from "@nextui-org/react";
+import type { AppProps } from 'next/app';
+import theme from './themeConfig';
+import '../styles/globals.css';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+
+const App = ({ Component, pageProps }: AppProps) => (
+	<ConfigProvider theme={theme}>
+		<NextUIProvider>
+			<Component {...pageProps} />
+		</NextUIProvider>
+	</ConfigProvider> 
+);
+
+export default App;

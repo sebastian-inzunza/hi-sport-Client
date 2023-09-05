@@ -15,10 +15,186 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+html {
+	scroll-behavior: smooth;
+}
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  height: 100%;
+  color: white;
+}
+
+/* FONDO PANTALLA */
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  background-image: url('../assets/fondoCamara.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../assets/fondoCamara.jpg");
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+}
+.background-image::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(245, 198, 255, 0.136);
+  z-index:-1;
+}
+
+
+/* NAVBAR */
+.logoHeader{
+  width: 20%;
+  margin-top: 2.2em;
+}
+.fondoNav{
+  background-color: transparent;
+  
+}
+.itemNavBar{
+  color: white;
+  text-align: center;
+}
+
+
+/* CONTENT */
+.titleContent{
+  font-size: 15em;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+	-webkit-animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+ @-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+.marginHome{
+  padding-top: 40vh;
+}
+
+
+
+
+/* BOTON INICIO */
+.botonInicio{
+  background-image: linear-gradient(to right, #014aad , #ca6ce6) !important;
+  border-color: #13022e !important;
+  color: white !important;
+  font-size: 2em !important;
+  height: 2em !important;
+  border-radius: 2em !important;
+}
+.botonInicio:hover {
+  animation: animate 2s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 800%;
+  }
+}
+.botonInicio:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(45deg, #014aad, #ca6ce6, #ca6ce6, #014aad);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5%;
+}
+.botonInicio:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}
+
+
+/* LOGO DE REDES SOCIALES */
+.logoRedes{
+  height: 100%;
+  text-align: center;
+}
+
+
+/* PROGRAMACION */
+.imgTable{
+  width: 50px;
+}
+.cardEffect:hover {
+	-webkit-box-shadow: 0px 0px 41px 0px rgba(202,108,230,0.75);
+  -moz-box-shadow: 0px 0px 41px 0px rgba(202,108,230,0.75);
+  box-shadow: 0px 0px 41px 0px rgba(202,108,230,0.75);
+}
+.imgCarousel{
+  height: 100%;
+}
+.fullWidth{
+  width: 100%;
+}
+.columnist{
+  height: 12em;
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+}
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* VISTA DESDE CELULAR */
+@media only screen and (max-width: 1100px) {
+  .titleContent{
+    font-size: 4em;
+  }
+  .marginHome{
+    padding-top: 18em;
+  }
+  .logoHeader{
+    width: 25%;
+    margin-top: 0em;
+  }
+  .zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
 }
