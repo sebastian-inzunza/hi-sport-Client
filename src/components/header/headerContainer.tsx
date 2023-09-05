@@ -13,7 +13,7 @@ export default function HeaderContainer() {
     return (
         <Navbar className='fondoNav' onMenuOpenChange={setIsMenuOpen}>
             <NavbarContent className='justify-end' justify='start'>
-                <NavbarMenuToggle isSelected={isMenuOpen} aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
+                <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
                 <NavbarBrand>
                     <img className='logoHeader' src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
                 </NavbarBrand>
