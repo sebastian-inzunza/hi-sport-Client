@@ -30,11 +30,10 @@ body {
   right: 0;
   display: block;
   height: 100%;
-  background-image: url('../assets/fondoCamara.jpg');
+  background-image: url('https://hi-sports.tv/media/fondoCamara.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../assets/fondoCamara.jpg");
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
