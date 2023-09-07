@@ -48,6 +48,7 @@ export default function ContentContainer() {
                             <Col span={6}>
                                 <Image className='logoRedes' src={Twitter} alt='Follow us on Twitter' />
                             </Col>
+
                         </Row>
                     </Col>
                 </Row>
