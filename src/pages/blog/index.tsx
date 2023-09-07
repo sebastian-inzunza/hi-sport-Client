@@ -1,12 +1,16 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { Col } from 'antd';
 import HeaderContainer from '@/components/header/headerContainer';
 import ContentContainer from '@/components/content/contentContainer';
 import ProgramacionContainer from '@/components/content/programacionContainer';
-import BreakingNewsContainer from '../components/content/breakingNewsContainer';
 import Footercontenido from "@/components/FooterContainer/footercontenido"
+import Blog from '@/components/blog/blog';
 
 export default function Home() {
+  const router = useRouter();
+  const { id } = router.query;
+
   return (
     <>
       <Head>
@@ -81,9 +85,8 @@ export default function Home() {
         </div>*/}
       <div className='background-image' />
       <HeaderContainer />
-      <ContentContainer />
-      <ProgramacionContainer />
-      <BreakingNewsContainer />
+      <Blog />
+
       <Col xs={0} md={24}>
         <br />
         <br />

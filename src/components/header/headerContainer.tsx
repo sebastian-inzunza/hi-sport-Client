@@ -21,7 +21,7 @@ export default function HeaderContainer() {
 
             <NavbarContent className='hidden sm:flex gap-11 itemNavBar' justify='end'>
                 <NavbarItem>
-                    <Link className='itemNavBar' href='#inicio'>
+                    <Link className='itemNavBar' href='/'>
                         <HomeOutlined style={{ marginRight: '.5em' }} />
                         INICIO
                     </Link>
