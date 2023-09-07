@@ -23,7 +23,7 @@ const footercontenido = (props: Props) => {
     const imageHiEnergy = hiEnergy.src;
 
     return (
-        <footer className="bg-gray-800/40 text-white pt-10 mt-10 relative">
+        <footer className="bg-gray-800/40 text-white pt-10 relative">
             <div className="container mx-auto text-center flex md:justify-between justify-center">
                 <div className=''>
                     <ul className="space-y-5">

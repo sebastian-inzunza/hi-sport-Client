@@ -7,6 +7,7 @@ import "../../styles/globals.css"
 
 
 
+
 const listCarouselDesk = [
     {
         lista: [
@@ -242,14 +243,14 @@ const listaBlog = [
     },
     {
         id: 2,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://www.record.com.mx/sites/default/files/articulos/2023/09/06/20220409_4092-21.jpg',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
-        etiqueta: "Pumas"
+        etiqueta: "America"
     },
     {
         id: 3,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/07/20190623_7651.jpg?itok=4jekrXIS&changed=20230907130157',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
         etiqueta: "Pumas"
@@ -527,29 +528,43 @@ export default function BreakingNewsContainer() {
                 </Card>
 
                 <div className="grid md:grid-cols-3 md:gap-4 mt-8">
-
                     {listaBlog.map((item, index) => (
                         <Link key={index} href={`/blog?id=${item.id}`}>
                             <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`}>
-                                <div className="relative">
-                                    <img src={item.source} alt="Imagen de la columna" className="w-full h-auto" />
-                                    <div className="absolute top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md">{item.etiqueta}</div>
+                                <div className="relative overflow-hidden group">
+                                    <img
+                                        src={item.source}
+                                        alt="Imagen de la columna"
+                                        className="w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300"
+                                    />
+                                    <div
+                                        className={`absolute top-0 left-0 ${index % 3 === 0
+                                            ? 'bg-gradient-to-r from-blue-500 to-green-500'
+                                            : index % 3 === 1
+                                                ? 'bg-gradient-to-r from-blue-500/40 to-blue-900'
+                                                : 'bg-gradient-to-r from-red-500 to-pink-500'
+                                            } text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}
+                                    >
+                                        {item.etiqueta}
+                                    </div>
                                 </div>
-                                <div className='bg-purple-600/40 pb-8 rounded-b-lg'>
-                                    <div className='mx-3 pt-2'>
-                                        <div className='text-xl text-white font-bold uppercase text-center'>
+                                <div className="bg-purple-600/40 pb-8 rounded-b-lg">
+                                    <div className="mx-3 pt-2">
+                                        <div className="text-xl text-white font-bold uppercase text-center">
                                             <span>{item.titulo}</span>
                                         </div>
                                         <div>
-                                            <span className='text-lg text-white text-justify'>{item.descripcion}</span>
+                                            <span className="text-lg text-white text-justify">
+                                                {item.descripcion}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </Link>
-
                     ))}
                 </div>
+
 
             </Col >
         </Row >

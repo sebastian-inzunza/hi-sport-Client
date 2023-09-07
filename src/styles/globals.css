@@ -209,3 +209,7 @@ body {
   transform: rotate(-90deg);
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
+
+.redondo{
+  border-radius: 2em;
+}

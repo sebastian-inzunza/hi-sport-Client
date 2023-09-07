@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { Col } from 'antd';
 import HeaderContainer from '@/components/header/headerContainer';
 import ContentContainer from '@/components/content/contentContainer';
@@ -8,8 +7,7 @@ import Footercontenido from "@/components/FooterContainer/footercontenido"
 import Blog from '@/components/blog/blog';
 
 export default function Home() {
-  const router = useRouter();
-  const { id } = router.query;
+
 
   return (
     <>
