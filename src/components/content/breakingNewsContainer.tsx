@@ -6,8 +6,6 @@ import Link from 'next/link';
 import "../../styles/globals.css"
 
 
-
-
 const listCarouselDesk = [
     {
         lista: [
@@ -236,66 +234,66 @@ const listColumnistas = [
 const listaBlog = [
     {
         id: 1,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/5LZU3-kdf7ODBYc5x5y7NY-xjq8VNSJvpMpaEogTW_w/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hczAx/LmVwaW1nLm5ldC9m/dXRib2wvaW1hZ2Vu/ZXMvMjAyMi8wNi8w/My9wcmltZXJhLzE2/NTQyNzQ0NDdfODUz/NjU3XzE2NTQyNzQ3/MjVfcG9ydGFkYV9u/b3JtYWxfcmVjb3J0/ZTIuanBn',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
         etiqueta: "Pumas"
     },
     {
         id: 2,
-        source: 'https://www.record.com.mx/sites/default/files/articulos/2023/09/06/20220409_4092-21.jpg',
+        source: 'https://imgs.search.brave.com/MdriCZG47qUVJ8eKaBNnCU3luJO7t3cVP-noaaGCyKc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS0z/LWUxNTg3NDI4NzUz/NTkwLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
         etiqueta: "America"
     },
     {
         id: 3,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/07/20190623_7651.jpg?itok=4jekrXIS&changed=20230907130157',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
-        etiqueta: "Pumas"
+        etiqueta: "Liga MX"
     },
     {
         id: 4,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
         etiqueta: "Pumas"
     },
     {
         id: 9,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
-        etiqueta: "Pumas"
+        etiqueta: "America"
     },
     {
         id: 5,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
-        etiqueta: "Pumas"
+        etiqueta: "Liga Mx"
     },
     {
         id: 6,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
         etiqueta: "Pumas"
     },
     {
         id: 7,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
-        etiqueta: "Pumas"
+        etiqueta: "America"
     },
     {
         id: 8,
-        source: 'https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/05/chinohuertatri2.jpg?itok=yGRMnuc0&changed=20230905210351',
+        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
         descripcion: "El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano",
-        etiqueta: "Pumas"
+        etiqueta: "Liga Mx"
     },
 
 ];
@@ -527,7 +525,7 @@ export default function BreakingNewsContainer() {
                     </Col>
                 </Card>
 
-                <div className="grid md:grid-cols-3 md:gap-4 mt-8">
+                <div className="grid md:grid-cols-3 md:gap-4 mt-8" data-aos="fade-up">
                     {listaBlog.map((item, index) => (
                         <Link key={index} href={`/blog?id=${item.id}`}>
                             <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`}>

@@ -9,6 +9,8 @@ import Facebook from '../../assets/Facebook.svg';
 import Instagram from '../../assets/Instagram.svg';
 import Twitter from '../../assets/twitter.svg';
 import Youtube from '../../assets/youtube.svg';
+import { Row, Col } from 'antd';
+
 
 import Image from 'next/image';
 
@@ -25,61 +27,44 @@ const footercontenido = (props: Props) => {
     return (
         <footer className="bg-gray-800/40 text-white pt-10 relative">
             <div className="container mx-auto text-center flex md:justify-between justify-center">
-                <div className=''>
-                    <ul className="space-y-5">
-                        <li className="flex items-center md:ml-0 ml-28">
-                            <img className="w-12 h-12" src={imageBox} alt="Box" />
-                            <span className="ml-2 md:ml-0">Boxeo</span>
+                <div className="md:flex-col container">
+                    {/* <ul className="md:flex hidden">
+
+                        <li className="flex-grow text-center">
+                            <span className="md:ml-0">Boxeo</span>
+                            <img className="w-12 h-12 mx-auto mt-2" src={imageBox} alt="Box" />
                         </li>
-                        <li className="w-80 h-0.5 bg-white/20"></li>
-                        <li className="flex items-center md:ml-0 ml-28">
-
-                            <img className="w-12 h-12 mr-5" src={imageBaseball} alt="Beisboll" />
-                            <span>Beisbol</span>
-
+                        ¿
+                        <li className="flex-grow text-center">
+                            <span className="md:ml-0">Beisbol</span>
+                            <img className="w-12 h-12 mx-auto mt-2" src={imageBaseball} alt="Beisboll" />
                         </li>
-                        <li className="w-80 h-0.5 bg-white/20"></li>
-                        <li className="flex items-center md:ml-0 ml-28">
-
-                            <img className="w-12 h-12 mr-5" src={imageFutbol} alt="Futbol" />
-                            <span>Futbol</span>
-
+                        <li className="flex-grow text-center">
+                            <span className="md:ml-0">Futbol</span>
+                            <img className="w-12 h-12 mx-auto mt-2" src={imageFutbol} alt="Futbol" />
                         </li>
-                        <li className="w-80 h-0.5 bg-white/20"></li>
-                        <li className="flex items-center md:ml-0 ml-28">
-
-                            <img className="w-12 h-12 mr-5" src={imageFutbolAmericano} alt="Futbol Americano" />
-                            <span>Futbol Americano</span>
+                        <li className="flex-grow text-center">
+                            <span className="md:ml-0">Futbol Americano</span>
+                            <img className="w-12 h-12 mx-auto mt-2" src={imageFutbolAmericano} alt="Futbol Americano" />
                         </li>
-                        <li className="w-80 h-0.5 bg-white/20"></li>
+                    </ul> */}
+
+                    <div className="w-full h-1 bg-white/80 mt-5"></div>
+
+                    <ul className='flex md:w-1/4 md:justify-between md:mx-auto mt-10 justify-center'>
+                        <Col span={4} className='md:mx-3 mx-6'>
+                            <Image className='logoRedes ' src={Facebook} alt='Follow us on Facebook' />
+                        </Col>
+                        <Col span={6} className='md:mx-3'>
+                            <Image className='logoRedes' src={Instagram} alt='Follow us on Instagram' />
+                        </Col>
+                        <Col span={6} className='mr-3'>
+                            <Image className='logoRedes' src={Twitter} alt='Follow us on Twitter' />
+                        </Col>
 
                     </ul>
                 </div>
-                <div>
-                    <ul className="space-y-5 items-center hidden md:block">
-                        <li className="flex items-center">
-                            <Image className="w-12 h-12 mr-5" src={Facebook} alt="Facebook" />
-                            <span>Facebook</span>
 
-                        </li>
-                        <li className='flex items-center'>
-                            <Image className="w-12 h-12  mr-5" src={Instagram} alt="Instagram" />
-                            <span>Instagram</span>
-
-                        </li>
-                        <li className='flex items-center'>
-                            <Image className="w-12 h-12  mr-5" src={Twitter} alt="Twitter" />
-                            <span>Twitter</span>
-
-                        </li>
-                        <li className='flex items-center'>
-                            <Image className="w-12 h-12  mr-5" src={Youtube} alt="Youtube" />
-                            <span>Youtube</span>
-
-                        </li>
-
-                    </ul>
-                </div>
             </div>
             <div className='bg-purple-600/20 pt-2 mt-10 '>
                 <div className='flex md:justify-between justify-center items-center container mx-auto'>
@@ -103,6 +88,7 @@ const footercontenido = (props: Props) => {
                 </div>
             </div>
         </footer>
+
     )
 }
 
