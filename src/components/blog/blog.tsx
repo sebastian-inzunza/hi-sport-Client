@@ -100,7 +100,7 @@ const blog = (props: Props) => {
                                 alt="Imagen de la columna"
                                 className="w-full h-full object-cover object-center rounded-md"
                             />
-                            <div className="absolute top-0 left-0  flex justify-center items-center text-white md:text-3xl text-xl px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md ">
+                            <div className="absolute top-0 left-0  flex justify-center items-center text-white md:text-3xl md:text-xl text-sm px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md ">
                                 {"PUMAS"}
                             </div>
                         </div>
