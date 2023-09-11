@@ -1,7 +1,6 @@
 import React from 'react';
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from '@nextui-org/react';
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Image, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from '@nextui-org/react';
 import { HomeOutlined, ClockCircleOutlined, CalendarOutlined } from '@ant-design/icons';
-import Image from 'next/image';
 
 export default function HeaderContainer() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);

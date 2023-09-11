@@ -1,8 +1,6 @@
 import React from 'react';
-import { Card, CardBody, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '@nextui-org/react';
+import { Card, CardBody, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Image } from '@nextui-org/react';
 import { Row, Col, Divider } from 'antd';
-import Image from 'next/image';
-
 
 export default function ProgramacionContainer() {
     const columns = ['Horario', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
@@ -87,25 +85,25 @@ export default function ProgramacionContainer() {
                                     <TableRow style={{ color: 'white' }} key={i}>
                                         <TableCell>{row.horario}</TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[0]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[0]} alt='Programacion' />
                                         </TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[1]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[1]} alt='Programacion' />
                                         </TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[2]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[2]} alt='Programacion' />
                                         </TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[3]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[3]} alt='Programacion' />
                                         </TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[4]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[4]} alt='Programacion' />
                                         </TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[5]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[5]} alt='Programacion' />
                                         </TableCell>
                                         <TableCell>
-                                            <Image className='imgTable' src={row.programacion[6]} alt="Programacion" />
+                                            <Image className='imgTable' src={row.programacion[6]} alt='Programacion' />
                                         </TableCell>
                                     </TableRow>
                                 ))}

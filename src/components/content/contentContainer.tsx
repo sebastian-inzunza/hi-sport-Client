@@ -1,8 +1,7 @@
 import React from 'react';
 import { Bebas_Neue } from 'next/font/google';
 import { Row, Col } from 'antd';
-import { Button } from '@nextui-org/react';
-import Image from 'next/image';
+import { Button, Image } from '@nextui-org/react';
 
 import { ArrowRightOutlined } from '@ant-design/icons';
 
@@ -48,7 +47,6 @@ export default function ContentContainer() {
                             <Col span={6}>
                                 <Image className='logoRedes' src={Twitter} alt='Follow us on Twitter' />
                             </Col>
-
                         </Row>
                     </Col>
                 </Row>
