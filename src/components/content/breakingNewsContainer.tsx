@@ -356,7 +356,7 @@ export default function BreakingNewsContainer() {
                                                         <Col span={24}>Presentado por</Col>
                                                         <Col span={24} className='mt-4'>
                                                             <div className='w-24'>
-                                                                <Image src={item.source} className='imgCarousel' alt='alt' />
+                                                                <img src={item.source} className='imgCarousel' alt='alt' />
                                                             </div>
                                                         </Col>
                                                     </Col>
@@ -460,31 +460,31 @@ export default function BreakingNewsContainer() {
                         <Row justify={'space-around'} gutter={[8, 8]}>
                             <Col sm={24} md={12}>
                                 <Link href={'/blog '}>
-                                    <Image src={'https://hi-sports.tv/media/banner1.png'} className='fullWidth' alt='banner1' />
+                                    <img src={'https://hi-sports.tv/media/banner1.png'} className='h-full' alt='banner1' />
                                 </Link>
                             </Col>
                             <Col sm={24} md={12}>
                                 <Row justify='space-around' gutter={[8, 8]}>
                                     <Col span={12}>
                                         <Link href={'/blog '}>
-                                            <Image src={'https://hi-sports.tv/media/banner2.png'} className='fullWidth' alt='banner1' />
+                                            <img src={'https://hi-sports.tv/media/banner2.png'} className='fullWidth' alt='banner1' />
                                         </Link>
                                     </Col>
                                     <Col span={12}>
                                         <Link href={'/blog '}>
-                                            <Image src={'https://hi-sports.tv/media/banner3.png'} className='fullWidth' alt='banner1' />
+                                            <img src={'https://hi-sports.tv/media/banner3.png'} className='fullWidth' alt='banner1' />
                                         </Link>
                                     </Col>
                                 </Row>
                                 <Row justify='space-around' gutter={[8, 8]}>
                                     <Col span={12}>
                                         <Link href={'/blog '}>
-                                            <Image src={'https://hi-sports.tv/media/banner4.png'} className='fullWidth' alt='banner1' />
+                                            <img src={'https://hi-sports.tv/media/banner4.png'} className='fullWidth' alt='banner1' />
                                         </Link>
                                     </Col>
                                     <Col span={12}>
                                         <Link href={'/blog '}>
-                                            <Image src={'https://hi-sports.tv/media/banner5.png'} className='fullWidth' alt='banner1' />
+                                            <img src={'https://hi-sports.tv/media/banner5.png'} className='fullWidth' alt='banner1' />
                                         </Link>
                                     </Col>
                                 </Row>
@@ -549,8 +549,8 @@ export default function BreakingNewsContainer() {
                         <Link key={index} href={`/blog?id=${item.id}`}>
                             <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`}>
                                 <div className='relative overflow-hidden group'>
-                                    <Image radius='none' src={item.source} alt='Imagen de la columna' className='w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300' />
-                                    <div style={{ zIndex: '10000' }} className={`absolute top-0 left-0 ${index % 3 === 0 ? 'bg-gradient-to-r from-blue-500 to-green-500' : index % 3 === 1 ? 'bg-gradient-to-r from-blue-500/40 to-blue-900' : 'bg-gradient-to-r from-red-500 to-pink-500'} text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}>
+                                    <img src={item.source} alt='Imagen de la columna' className='w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300' />
+                                    <div className={`absolute top-0 left-0 ${index % 3 === 0 ? 'bg-gradient-to-r from-blue-500 to-green-500' : index % 3 === 1 ? 'bg-gradient-to-r from-blue-500/40 to-blue-900' : 'bg-gradient-to-r from-red-500 to-pink-500'} text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}>
                                         {item.etiqueta}
                                     </div>
                                 </div>

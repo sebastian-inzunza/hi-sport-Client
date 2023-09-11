@@ -53,12 +53,12 @@ const Blog = (props: Props) => {
                 <div className='w-1/6 mx-2 '>
                     <div className='hidden md:block'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <Image src='https://sissamx.com.mx/hi-sports/images/home/160x600.png' alt='Publicidad' className='relative w-full ' />
+                            <img src='https://sissamx.com.mx/hi-sports/images/home/160x600.png' alt='Publicidad' className='relative w-full ' />
                         </Link>
                     </div>
                     {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <Image
+                           <img
                                 src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
                                 alt="Imagen de Publicidad Derecha"
                                 className="relative w-full redondo"
@@ -73,7 +73,7 @@ const Blog = (props: Props) => {
                             <span>CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR</span>
                         </div>
                         <div className='relative'>
-                            <Image src='https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw' alt='Imagen de la columna' className='w-full h-full object-cover object-center rounded-md' />
+                            <img src='https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw' alt='Imagen de la columna' className='w-full h-full object-cover object-center rounded-md' />
                             <div className='absolute top-0 left-0  flex justify-center items-center text-white md:text-3xl md:text-xl text-sm px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md '>{'PUMAS'}</div>
                         </div>
                         <div className='pb-8 rounded-b-lg'>
@@ -90,7 +90,7 @@ const Blog = (props: Props) => {
                                 </div>
 
                                 <div className='mt-10'>
-                                    <Image src='https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/07/20190623_7651.jpg?itok=4jekrXIS&changed=20230907130157' alt='Imagen de la columna' className='w-full h-full object-cover object-center rounded-md mb-3' />
+                                    <img src='https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/07/20190623_7651.jpg?itok=4jekrXIS&changed=20230907130157' alt='Imagen de la columna' className='w-full h-full object-cover object-center rounded-md mb-3' />
 
                                     <div className='text-xl md:mr-33 md:w-3/4'>
                                         <p className='mb-10'>Christian Giménez reveló que la Selección Argentina Sub-23 buscó a su hijo Santiago, para portar la camiseta Albiceleste, sin embargo, la estrella de Feyenoord, decidió defender los colores del Tri.</p>
@@ -111,7 +111,7 @@ const Blog = (props: Props) => {
                                     <div className='relative'>
                                         <div className=' top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white w-3/4 text-xs px-2 py-1 md:text-lg md:w-3/4 md:font-bold rounded-t-xl text-md md:text-center'>Otros Deportes</div>
 
-                                        <Image src={item.lista.source} alt='Imagen de la columna' className='w-full h-auto' />
+                                        <img src={item.lista.source} alt='Imagen de la columna' className='w-full h-auto' />
                                     </div>
                                     <div className='ml-2 mt-6 md:text-xl'>{item.lista.titulo}</div>
                                 </div>
@@ -121,7 +121,7 @@ const Blog = (props: Props) => {
 
                     <div className='mt-10 container relative w-full'>
                         <div className='hidden md:block'>
-                            <Image src='https://sissamx.com.mx/hi-sports/images/home/970x250.png' alt='publicidad' className='w-full h-full object-cover ' />
+                            <img src='https://sissamx.com.mx/hi-sports/images/home/970x250.png' alt='publicidad' className='w-full h-full object-cover ' />
                         </div>
                     </div>
                 </div>
@@ -129,12 +129,12 @@ const Blog = (props: Props) => {
                 <div className='w-1/6 mx-2'>
                     <div className='hidden md:block'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <Image src='https://sissamx.com.mx/hi-sports/images/home/160x600.png' alt='Publicidad' className='relative w-full ' />
+                            <img src='https://sissamx.com.mx/hi-sports/images/home/160x600.png' alt='Publicidad' className='relative w-full ' />
                         </Link>
                     </div>
                     {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <Image
+                           <img
                                 src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
                                 alt="Imagen de Publicidad Derecha"
                                 className="relative w-full redondo"
