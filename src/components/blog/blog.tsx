@@ -103,17 +103,17 @@ const Blog = (props: Props) => {
                         </div>
                     </div>
                     <div className='relative md:mt-32 mt-10 container'>
-                        <span className='md:text-3xl bg-purple-600/80 px-8 py-2 w-2/6 rounded-t-xl'>Notas Relacionadas</span>
+                        <span className='md:text-2xl bg-purple-600/80 px-8 py-2 w-2/6 rounded-t-xl'>Notas Relacionadas</span>
 
                         <div className='mt-1 py-6 bg-stone-600/80 md:grid md:grid-cols-3  rounded-tr-[2em] rounded-b-[2em]'>
                             {notasSimilares.map((item, index) => (
                                 <div className='grid grid-cols-2 mx-3 items-center' key={index}>
                                     <div className='relative'>
-                                        <div className=' top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white w-3/4 text-xs px-2 py-1 md:text-lg md:w-3/4 md:font-bold rounded-t-xl text-md md:text-center'>Otros Deportes</div>
+                                        <div className=' top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center'>Otros Deportes</div>
 
                                         <img src={item.lista.source} alt='Imagen de la columna' className='w-full h-auto' />
                                     </div>
-                                    <div className='ml-2 mt-6 md:text-xl'>{item.lista.titulo}</div>
+                                    <div className='ml-2 mt-6 '>{item.lista.titulo}</div>
                                 </div>
                             ))}
                         </div>
@@ -121,7 +121,10 @@ const Blog = (props: Props) => {
 
                     <div className='mt-10 container relative w-full'>
                         <div className='hidden md:block'>
-                            <img src='https://sissamx.com.mx/hi-sports/images/home/970x250.png' alt='publicidad' className='w-full h-full object-cover ' />
+                            <Link href='https://www.caliente.mx/' target='_blank'>
+                                <img src='https://sissamx.com.mx/hi-sports/images/home/970x250.png' alt='publicidad' className='w-full h-full object-cover ' />
+                            </Link>
+
                         </div>
                     </div>
                 </div>

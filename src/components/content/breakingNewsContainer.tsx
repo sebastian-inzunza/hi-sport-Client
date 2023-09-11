@@ -74,12 +74,6 @@ const listCarouselDesk = [
                         momioLocal: '+160',
                         momioVisitante: '+155',
                     },
-                ],
-            },
-            {
-                source: 'https://hi-sports.tv/media/NCAA.png',
-                deporte: 'NFL',
-                juegos: [
                     {
                         horario: '6:00 PM',
                         local: 'https://imgs.search.brave.com/eZLszwnydWlc4vh-VC5-3zFw7aOoE1gVS4PkEcJ0MI4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc3LzNm/Lzk1Lzc3M2Y5NTBh/YzJjNDE3MTE2MWIz/YTUzNTNlZTkyMjRh/LS1sb2dvLWZvb3Ri/YWxsLWZvb3RiYWxs/LXNvY2Nlci5qcGc',
@@ -91,21 +85,36 @@ const listCarouselDesk = [
                     },
                 ],
             },
-            {
-                source: 'https://hi-sports.tv/media/LigaBBVA.png',
-                deporte: 'NFL',
-                juegos: [
-                    {
-                        horario: '6:00 PM',
-                        local: 'https://imgs.search.brave.com/eZLszwnydWlc4vh-VC5-3zFw7aOoE1gVS4PkEcJ0MI4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc3LzNm/Lzk1Lzc3M2Y5NTBh/YzJjNDE3MTE2MWIz/YTUzNTNlZTkyMjRh/LS1sb2dvLWZvb3Ri/YWxsLWZvb3RiYWxs/LXNvY2Nlci5qcGc',
-                        nombreLocal: 'NYJ',
-                        visitante: 'https://imgs.search.brave.com/uFjugh4yiiZRXs-LzCRm0d52LlOSR2odbnbdjMYtarw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzk0L2Yx/LzI2Lzk0ZjEyNjJh/NTFlZjgwMjRlMjA5/MzMzZmVhOGY4ZDdh/LS1zb2NjZXItbG9n/by1sb2dvLWZvb3Ri/YWxsLmpwZw',
-                        nombreVisitante: 'CLE',
-                        momioLocal: '+160',
-                        momioVisitante: '+155',
-                    },
-                ],
-            },
+            // {
+            //     source: 'https://hi-sports.tv/media/NCAA.png',
+            //     deporte: 'NFL',
+            //     juegos: [
+            //         {
+            //             horario: '6:00 PM',
+            //             local: 'https://imgs.search.brave.com/eZLszwnydWlc4vh-VC5-3zFw7aOoE1gVS4PkEcJ0MI4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc3LzNm/Lzk1Lzc3M2Y5NTBh/YzJjNDE3MTE2MWIz/YTUzNTNlZTkyMjRh/LS1sb2dvLWZvb3Ri/YWxsLWZvb3RiYWxs/LXNvY2Nlci5qcGc',
+            //             nombreLocal: 'NYJ',
+            //             visitante: 'https://imgs.search.brave.com/uFjugh4yiiZRXs-LzCRm0d52LlOSR2odbnbdjMYtarw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzk0L2Yx/LzI2Lzk0ZjEyNjJh/NTFlZjgwMjRlMjA5/MzMzZmVhOGY4ZDdh/LS1zb2NjZXItbG9n/by1sb2dvLWZvb3Ri/YWxsLmpwZw',
+            //             nombreVisitante: 'CLE',
+            //             momioLocal: '+160',
+            //             momioVisitante: '+155',
+            //         },
+            //     ],
+            // },
+            // {
+            //     source: 'https://hi-sports.tv/media/LigaBBVA.png',
+            //     deporte: 'NFL',
+            //     juegos: [
+            //         {
+            //             horario: '6:00 PM',
+            //             local: 'https://imgs.search.brave.com/eZLszwnydWlc4vh-VC5-3zFw7aOoE1gVS4PkEcJ0MI4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc3LzNm/Lzk1Lzc3M2Y5NTBh/YzJjNDE3MTE2MWIz/YTUzNTNlZTkyMjRh/LS1sb2dvLWZvb3Ri/YWxsLWZvb3RiYWxs/LXNvY2Nlci5qcGc',
+            //             nombreLocal: 'NYJ',
+            //             visitante: 'https://imgs.search.brave.com/uFjugh4yiiZRXs-LzCRm0d52LlOSR2odbnbdjMYtarw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzk0L2Yx/LzI2Lzk0ZjEyNjJh/NTFlZjgwMjRlMjA5/MzMzZmVhOGY4ZDdh/LS1zb2NjZXItbG9n/by1sb2dvLWZvb3Ri/YWxsLmpwZw',
+            //             nombreVisitante: 'CLE',
+            //             momioLocal: '+160',
+            //             momioVisitante: '+155',
+            //         },
+            //     ],
+            // },
             // { source: 'https://hi-sports.tv/media/puroFutbol.png' },
             // { source: 'https://hi-sports.tv/media/NCAA.png' },
             // { source: 'https://hi-sports.tv/media/LigaBBVA.png' },
@@ -352,10 +361,10 @@ export default function BreakingNewsContainer() {
                                         <Row justify='space-around' gutter={[8, 8]}>
                                             {page.lista.map((item, i) => (
                                                 <>
-                                                    <Col span={2} key={i}>
-                                                        <Col span={24}>Presentado por</Col>
+                                                    <Col span={3} key={i}>
+                                                        <Col span={24} className=''>Presentado por</Col>
                                                         <Col span={24} className='mt-4'>
-                                                            <div className='w-24'>
+                                                            <div className='w-20 flex ml-7'>
                                                                 <img src={item.source} className='imgCarousel' alt='alt' />
                                                             </div>
                                                         </Col>
@@ -556,11 +565,11 @@ export default function BreakingNewsContainer() {
                                 </div>
                                 <div className='bg-purple-600/40 pb-8 rounded-b-lg'>
                                     <div className='mx-3 pt-2'>
-                                        <div className='text-xl text-white font-bold uppercase text-center'>
+                                        <div className='text-md text-white font-bold uppercase text-center'>
                                             <span>{item.titulo}</span>
                                         </div>
-                                        <div>
-                                            <span className='text-lg text-white text-justify'>{item.descripcion}</span>
+                                        <div className='mt-2'>
+                                            <span className='text-base text-white text-justify'>{item.descripcion}</span>
                                         </div>
                                     </div>
                                 </div>
