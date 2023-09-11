@@ -10,14 +10,12 @@ import Instagram from '../../assets/Instagram.svg';
 import Twitter from '../../assets/twitter.svg';
 import Youtube from '../../assets/youtube.svg';
 import { Row, Col } from 'antd';
-
-
 import Image from 'next/image';
 
 
 type Props = {}
 
-const footercontenido = (props: Props) => {
+const Footercontenido = (props: Props) => {
     const imageBox = box.src;
     const imageFutbol = futbol.src;
     const imageFutbolAmericano = futbolAmericano.src;
@@ -70,18 +68,18 @@ const footercontenido = (props: Props) => {
                 <div className='flex md:justify-between justify-center items-center container mx-auto'>
                     <div className='flex items-center'>
                         <div className='w-24 '>
-                            <img src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
+                            <Image src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
 
                         </div>
                         <span className='uppercase md:text-3xl font-bold md:ml-5'>#todo es posible</span>
                     </div>
                     <div className='md:flex md:items-center md:w-1/4 hidden '>
                         <div>
-                            <img src="https://hi-sports.tv/media/LigaBBVA.png" alt="" />
+                            <Image src="https://hi-sports.tv/media/LigaBBVA.png" alt="" />
 
                         </div>
                         <div>
-                            <img src={imageHiEnergy} alt='logo' />
+                            <Image src={imageHiEnergy} alt='logo' />
 
                         </div>
                     </div>
@@ -92,4 +90,4 @@ const footercontenido = (props: Props) => {
     )
 }
 
-export default footercontenido
+export default Footercontenido
