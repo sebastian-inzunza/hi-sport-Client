@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { Bebas_Neue } from 'next/font/google';
-import { Card, CardHeader, CardFooter, Image } from '@nextui-org/react';
+import { Card, CardHeader, CardFooter } from '@nextui-org/react';
 import { Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 type Props = {}
@@ -45,7 +46,7 @@ const notasSimilares = [{
 
 const bebas = Bebas_Neue({ weight: '400', preload: false });
 
-const blog = (props: Props) => {
+const Blog = (props: Props) => {
     const router = useRouter();
     const { id } = router.query;
 
@@ -66,7 +67,7 @@ const blog = (props: Props) => {
                 <div className='w-1/6 mx-2 '>
                     <div className='hidden md:block'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <img
+                            <Image
                                 src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
                                 alt="Publicidad"
                                 className="relative w-full "
@@ -77,7 +78,7 @@ const blog = (props: Props) => {
                     </div>
                     {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <img
+                            <Image
                                 src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
                                 alt="Imagen de Publicidad Derecha"
                                 className="relative w-full redondo"
@@ -95,7 +96,7 @@ const blog = (props: Props) => {
                             <span>CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR</span>
                         </div>
                         <div className="relative">
-                            <img
+                            <Image
                                 src="https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw"
                                 alt="Imagen de la columna"
                                 className="w-full h-full object-cover object-center rounded-md"
@@ -119,7 +120,7 @@ const blog = (props: Props) => {
 
 
                                 <div className='mt-10'>
-                                    <img
+                                    <Image
                                         src="https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/07/20190623_7651.jpg?itok=4jekrXIS&changed=20230907130157"
                                         alt="Imagen de la columna"
                                         className="w-full h-full object-cover object-center rounded-md mb-3"
@@ -143,11 +144,11 @@ const blog = (props: Props) => {
 
                         <div className='mt-1 py-6 bg-stone-600/80 md:grid md:grid-cols-3  rounded-tr-[2em] rounded-b-[2em]'>
                             {notasSimilares.map((item, index) => (
-                                <div className='grid grid-cols-2 mx-3 items-center'>
+                                <div className='grid grid-cols-2 mx-3 items-center' key={index}>
                                     <div className="relative">
                                         <div className=" top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white w-3/4 text-xs px-2 py-1 md:text-lg md:w-3/4 md:font-bold rounded-t-xl text-md md:text-center">Otros Deportes</div>
 
-                                        <img src={item.lista.source} alt="Imagen de la columna" className="w-full h-auto" />
+                                        <Image src={item.lista.source} alt="Imagen de la columna" className="w-full h-auto" />
                                     </div>
                                     <div className='ml-2 mt-6 md:text-xl'>
                                         {item.lista.titulo}
@@ -160,7 +161,7 @@ const blog = (props: Props) => {
 
                     <div className='mt-10 container relative w-full'>
                         <div className='hidden md:block'>
-                            <img
+                            <Image
                                 src="https://sissamx.com.mx/hi-sports/images/home/970x250.png"
                                 alt="publicidad"
                                 className="w-full h-full object-cover "
@@ -176,7 +177,7 @@ const blog = (props: Props) => {
                 <div className='w-1/6 mx-2'>
                     <div className='hidden md:block'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <img
+                            <Image
                                 src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
                                 alt="Publicidad"
                                 className="relative w-full "
@@ -187,7 +188,7 @@ const blog = (props: Props) => {
                     </div>
                     {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
-                            <img
+                            <Image
                                 src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
                                 alt="Imagen de Publicidad Derecha"
                                 className="relative w-full redondo"
@@ -203,4 +204,4 @@ const blog = (props: Props) => {
     )
 }
 
-export default blog
+export default Blog

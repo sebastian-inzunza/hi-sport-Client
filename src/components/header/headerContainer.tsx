@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from '@nextui-org/react';
 import { HomeOutlined, ClockCircleOutlined, CalendarOutlined } from '@ant-design/icons';
+import Image from 'next/image';
 
 export default function HeaderContainer() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -15,7 +16,7 @@ export default function HeaderContainer() {
             <NavbarContent className='justify-end' justify='start'>
                 <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
                 <NavbarBrand>
-                    <img className='logoHeader' src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
+                    <Image className='logoHeader' src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
                 </NavbarBrand>
             </NavbarContent>
 

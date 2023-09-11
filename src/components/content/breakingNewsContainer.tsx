@@ -1,10 +1,13 @@
 import { Row, Col, Divider } from 'antd';
 import { Footer } from 'antd/es/layout/layout'
-import { Card, CardHeader, CardFooter, Image } from '@nextui-org/react';
+import { Card, CardHeader, CardFooter } from '@nextui-org/react';
 import Carousel from '../carousel';
 import Link from 'next/link';
 import "../../styles/globals.css"
 import { useEffect, useState } from 'react';
+import "src/styles/globals.css"
+import Image from 'next/image';
+
 
 const listCarouselDesk = [
     {
@@ -353,7 +356,7 @@ export default function BreakingNewsContainer() {
                                                         <Col span={24}>Presentado por</Col>
                                                         <Col span={24} className='mt-4'>
                                                             <div className='w-24'>
-                                                                <img src={item.source} className='imgCarousel' alt='alt' />
+                                                                <Image src={item.source} className='imgCarousel' alt='alt' />
 
                                                             </div>
                                                         </Col>
@@ -374,13 +377,13 @@ export default function BreakingNewsContainer() {
                                                                     <span>{juego.horario}</span>
                                                                 </div>
                                                                 <div className='flex'>
-                                                                    <img src={juego.local} className='w-7 mr-2' alt='alt' />
+                                                                    <Image src={juego.local} className='w-7 mr-2' alt='alt' />
                                                                     <span className='mr-2'>{juego.nombreLocal}</span>
                                                                     <span className='text-gray-300 mr-2'>0-0</span>
                                                                     <span className='text-gray-300 '>{juego.momioLocal}</span>
                                                                 </div>
                                                                 <div className='flex mt-2'>
-                                                                    <img src={juego.visitante} className='w-7 mr-2' alt='alt' />
+                                                                    <Image src={juego.visitante} className='w-7 mr-2' alt='alt' />
                                                                     <span className='mr-2'>{juego.nombreVisitante}</span>
                                                                     <span className='text-gray-300 mr-2'>0-0</span>
                                                                     <span className='text-gray-300 '>{juego.momioVisitante}</span>
@@ -413,7 +416,7 @@ export default function BreakingNewsContainer() {
                                                         <Col span={24}>Presentado por</Col>
                                                         <Col span={24} className='mt-4'>
                                                             <div className='w-24'>
-                                                                <img src={item.source} className='imgCarousel' alt='alt' />
+                                                                <Image src={item.source} className='imgCarousel' alt='alt' />
 
                                                             </div>
                                                         </Col>
@@ -434,13 +437,13 @@ export default function BreakingNewsContainer() {
                                                                     <span>{juego.horario}</span>
                                                                 </div>
                                                                 <div className='flex'>
-                                                                    <img src={juego.local} className='w-7 mr-2' alt='alt' />
+                                                                    <Image src={juego.local} className='w-7 mr-2' alt='alt' />
                                                                     <span className='mr-2'>{juego.nombreLocal}</span>
                                                                     <span className='text-gray-300 mr-2'>0-0</span>
                                                                     <span className='text-gray-300 '>{juego.momioLocal}</span>
                                                                 </div>
                                                                 <div className='flex mt-2'>
-                                                                    <img src={juego.visitante} className='w-7 mr-2' alt='alt' />
+                                                                    <Image src={juego.visitante} className='w-7 mr-2' alt='alt' />
                                                                     <span className='mr-2'>{juego.nombreVisitante}</span>
                                                                     <span className='text-gray-300 mr-2'>0-0</span>
                                                                     <span className='text-gray-300 '>{juego.momioVisitante}</span>
@@ -515,7 +518,7 @@ export default function BreakingNewsContainer() {
                                     {listColumnistas.map((item, i) => (
                                         <Col span={3} key={i}>
                                             <Card isFooterBlurred radius='lg' className='border-none zoom' style={{ backgroundColor: 'transparent' }}>
-                                                <img src={item.source} className='columnist' alt='Columnist' />
+                                                <Image src={item.source} className='columnist' alt='Columnist' />
 
                                                 <CardFooter className='justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10'>
                                                     <p className='text-tiny text-white/80'>{item.nombre}</p>
@@ -537,7 +540,7 @@ export default function BreakingNewsContainer() {
                                     {listColumnistas.map((item, i) => (
                                         <Col span={12} key={i}>
                                             <Card isFooterBlurred radius='lg' className='border-none zoom bg-purple-600/40'>
-                                                <img src={item.source} className='columnist' alt='Columnist' />
+                                                <Image src={item.source} className='columnist' alt='Columnist' />
 
                                                 <CardFooter className='justify-center before:bg-white/10 border-white/20 border-1  py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10'>
                                                     <p className='text-tiny text-white/80'>{item.nombre}</p>
@@ -558,7 +561,7 @@ export default function BreakingNewsContainer() {
                         <Link key={index} href={`/blog?id=${item.id}`}>
                             <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`}>
                                 <div className="relative overflow-hidden group">
-                                    <img
+                                    <Image
                                         src={item.source}
                                         alt="Imagen de la columna"
                                         className="w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300"
