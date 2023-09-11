@@ -4,7 +4,7 @@ import { Card, CardHeader, CardFooter, Image } from '@nextui-org/react';
 import Carousel from '../carousel';
 import Link from 'next/link';
 import "../../styles/globals.css"
-
+import { useEffect, useState } from 'react';
 
 const listCarouselDesk = [
     {
@@ -298,6 +298,34 @@ const listaBlog = [
 
 ];
 export default function BreakingNewsContainer() {
+
+    const [showIntersectionObserver, setShowIntersectionObserver] = useState(false);
+
+    useEffect(() => {
+        // Verificar si IntersectionObserver está disponible en el navegador
+        if (typeof window !== 'undefined' && typeof IntersectionObserver !== 'undefined') {
+            setShowIntersectionObserver(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (showIntersectionObserver) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry);
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            });
+
+            const hiddenelement = document.querySelectorAll(".hiden-2");
+            hiddenelement.forEach((el) => {
+                observer.observe(el);
+            });
+        }
+    }, [showIntersectionObserver]);
+
     return (
         <Row justify='center' id='última hora'>
             <Col xs={0} md={24}>
@@ -525,7 +553,7 @@ export default function BreakingNewsContainer() {
                     </Col>
                 </Card>
 
-                <div className="grid md:grid-cols-3 md:gap-4 mt-8" data-aos="fade-up">
+                <div className="grid md:grid-cols-3 md:gap-4 mt-8">
                     {listaBlog.map((item, index) => (
                         <Link key={index} href={`/blog?id=${item.id}`}>
                             <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`}>
@@ -562,8 +590,6 @@ export default function BreakingNewsContainer() {
                         </Link>
                     ))}
                 </div>
-
-
             </Col >
         </Row >
 
