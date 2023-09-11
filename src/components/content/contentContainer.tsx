@@ -5,10 +5,6 @@ import { Button, Image } from '@nextui-org/react';
 
 import { ArrowRightOutlined } from '@ant-design/icons';
 
-import Facebook from '../../assets/Facebook.svg';
-import Instagram from '../../assets/Instagram.svg';
-import Twitter from '../../assets/twitter.svg';
-
 const bebas = Bebas_Neue({ weight: '400', preload: false });
 
 export default function ContentContainer() {
@@ -39,13 +35,13 @@ export default function ContentContainer() {
                     <Col xs={24} md={6}>
                         <Row justify='center' gutter={[8, 8]}>
                             <Col span={4}>
-                                <Image className='logoRedes' src={Facebook} alt='Follow us on Facebook' />
+                                <img className='logoRedes' src='https://hi-sports.tv/media/Facebook.svg' alt='Follow us on Facebook' />
                             </Col>
                             <Col span={6}>
-                                <Image className='logoRedes' src={Instagram} alt='Follow us on Instagram' />
+                                <img className='logoRedes' src='https://hi-sports.tv/media/Instagram.svg' alt='Follow us on Instagram' />
                             </Col>
                             <Col span={6}>
-                                <Image className='logoRedes' src={Twitter} alt='Follow us on Twitter' />
+                                <img className='logoRedes' src='https://hi-sports.tv/media/twitter.svg' alt='Follow us on Twitter' />
                             </Col>
                         </Row>
                     </Col>

@@ -1,5 +1,4 @@
 import { Row, Col, Divider } from 'antd';
-import { Footer } from 'antd/es/layout/layout';
 import { Card, CardHeader, CardFooter, Image } from '@nextui-org/react';
 import Carousel from '../carousel';
 import Link from 'next/link';
@@ -550,8 +549,10 @@ export default function BreakingNewsContainer() {
                         <Link key={index} href={`/blog?id=${item.id}`}>
                             <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`}>
                                 <div className='relative overflow-hidden group'>
-                                    <Image src={item.source} alt='Imagen de la columna' className='w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300' />
-                                    <div className={`absolute top-0 left-0 ${index % 3 === 0 ? 'bg-gradient-to-r from-blue-500 to-green-500' : index % 3 === 1 ? 'bg-gradient-to-r from-blue-500/40 to-blue-900' : 'bg-gradient-to-r from-red-500 to-pink-500'} text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}>{item.etiqueta}</div>
+                                    <Image radius='none' src={item.source} alt='Imagen de la columna' className='w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300' />
+                                    <div style={{ zIndex: '10000' }} className={`absolute top-0 left-0 ${index % 3 === 0 ? 'bg-gradient-to-r from-blue-500 to-green-500' : index % 3 === 1 ? 'bg-gradient-to-r from-blue-500/40 to-blue-900' : 'bg-gradient-to-r from-red-500 to-pink-500'} text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}>
+                                        {item.etiqueta}
+                                    </div>
                                 </div>
                                 <div className='bg-purple-600/40 pb-8 rounded-b-lg'>
                                     <div className='mx-3 pt-2'>

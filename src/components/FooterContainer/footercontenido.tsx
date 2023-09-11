@@ -4,9 +4,6 @@ import futbol from '../../assets/deportes/futbol.png';
 import baseball from '../../assets/deportes/baseball.png';
 import futbolAmericano from '../../assets/deportes/futbolAmericano.png';
 import hiEnergy from '../../assets/hiEnergy.png';
-import Facebook from '../../assets/Facebook.svg';
-import Instagram from '../../assets/Instagram.svg';
-import Twitter from '../../assets/twitter.svg';
 import Youtube from '../../assets/youtube.svg';
 import { Row, Col } from 'antd';
 import { Image } from '@nextui-org/react';
@@ -49,13 +46,13 @@ const Footercontenido = (props: Props) => {
 
                     <ul className='flex md:w-1/4 md:justify-between md:mx-auto mt-10 justify-center'>
                         <Col span={4} className='md:mx-3 mx-6'>
-                            <Image className='logoRedes ' src={Facebook} alt='Follow us on Facebook' />
+                            <img className='logoRedes ' src='https://hi-sports.tv/media/Facebook.svg' alt='Follow us on Facebook' />
                         </Col>
                         <Col span={6} className='md:mx-3'>
-                            <Image className='logoRedes' src={Instagram} alt='Follow us on Instagram' />
+                            <img className='logoRedes' src='https://hi-sports.tv/media/Instagram.svg' alt='Follow us on Instagram' />
                         </Col>
                         <Col span={6} className='mr-3'>
-                            <Image className='logoRedes' src={Twitter} alt='Follow us on Twitter' />
+                            <img className='logoRedes' src='https://hi-sports.tv/media/twitter.svg' alt='Follow us on Twitter' />
                         </Col>
                     </ul>
                 </div>
