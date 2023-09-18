@@ -13,7 +13,7 @@ function Carousel({ children: slides }: { children: any }) {
     };
 
     return (
-        <div className='overflow-hidden relative h-[6em]'>
+        <div className='overflow-hidden relative h-[6em] lg:h-full'>
             <div className='flex transition-transform ease-out duration-500' style={{ transform: `translateX(-${current * 100}%)` }}>
                 {slides}
             </div>

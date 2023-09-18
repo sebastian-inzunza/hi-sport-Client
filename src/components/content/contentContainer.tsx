@@ -13,7 +13,9 @@ export default function ContentContainer() {
             <Col span={22}>
                 <Row justify='center'>
                     <Col span={24} className='content'>
-                        <h2 className={`titleContent ${bebas.className}`}>#todo es posible</h2>
+                        <span className={`titleContent ${bebas.className} `}>
+                            <img src="https://hi-sports.tv/media/TodoEsPosible1.png" alt="" />
+                        </span>
                     </Col>
                 </Row>
                 <Row justify='space-between'>
@@ -25,7 +27,7 @@ export default function ContentContainer() {
                     </Col>
 
                     <Col xs={24} md={6}>
-                        <a href='#programación'>
+                        <a href='https://www.youtube.com/watch?v=fU8-RTJz69k'>
                             <Button style={{ width: '100%' }} className='botonInicio' endContent={<ArrowRightOutlined />}>
                                 VER AHORA
                             </Button>

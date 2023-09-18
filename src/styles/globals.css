@@ -30,7 +30,8 @@ body {
   right: 0;
   display: block;
   height: 100%;
-  background-image: url('https://hi-sports.tv/media/fondoCamara.jpg');
+  /* background-image: url('https://hi-sports.tv/media/fondoCamara.jpg'); */
+  background-image:  url("https://hi-sports.tv/media/Background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,6 +69,7 @@ body {
 
 /* CONTENT */
 .titleContent{
+  color: #ffee92;
   font-size: 12em;
   text-align: center;
   animation: glow 1s ease-in-out infinite alternate;
@@ -212,4 +214,29 @@ body {
 
 .redondo{
   border-radius: 2em;
+}
+
+.transition-height {
+  transition: height 0.3s ease; /* Duración y tipo de animación ajustables */
+  -webkit-transition: height 0.3s ease; /* Transición Webkit para navegadores compatibles */
+}
+
+#collapse {
+  /* (A1) BACKGROUND IMAGE */
+  background-image: url("https://imgs.search.brave.com/ia4txGV7EFUYkaw2vsk6zJfE8XyAoM9K7qgYhiMFA2A/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/d2FsbHBhcGVyc2Fm/YXJpLmNvbS8xMC83/L2hhOW5UVS5qcGc");
+  background-size: cover;
+  background-position: center;
+ 
+  /* (A2) DIMENSIONS */
+  max-width: 1000px; /* optional */
+  height: 500px; /* fixed size required */
+ 
+  /* (A3) CSS TRANSITION */
+  transition: all 0.5s;
+}
+
+#collapse.hide {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
 }

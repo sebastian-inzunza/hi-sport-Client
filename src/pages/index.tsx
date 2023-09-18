@@ -82,8 +82,8 @@ export default function Home() {
       <div className='background-image' />
       <HeaderContainer />
       <ContentContainer />
-      <ProgramacionContainer />
       <BreakingNewsContainer />
+      <ProgramacionContainer />
       <Col xs={0} md={24}>
         <br />
         <br />
@@ -93,6 +93,7 @@ export default function Home() {
         <br />
       </Col>
       <Footercontenido />
+
 
     </>
   );
