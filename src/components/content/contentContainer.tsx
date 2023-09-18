@@ -2,6 +2,7 @@ import React from 'react';
 import { Bebas_Neue } from 'next/font/google';
 import { Row, Col } from 'antd';
 import { Button, Image } from '@nextui-org/react';
+import Link from 'next/link';
 
 import { ArrowRightOutlined } from '@ant-design/icons';
 
@@ -27,11 +28,11 @@ export default function ContentContainer() {
                     </Col>
 
                     <Col xs={24} md={6}>
-                        <a href='https://www.youtube.com/watch?v=fU8-RTJz69k'>
+                        <Link href='https://www.youtube.com/watch?v=fU8-RTJz69k' target='_blank'>
                             <Button style={{ width: '100%' }} className='botonInicio' endContent={<ArrowRightOutlined />}>
                                 VER AHORA
                             </Button>
-                        </a>
+                        </Link>
                     </Col>
 
                     <Col xs={24} md={6}>
