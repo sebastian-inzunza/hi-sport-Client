@@ -58,21 +58,14 @@ const Footercontenido = (props: Props) => {
                 </div>
             </div>
             <div className='bg-purple-600/20 pt-2 mt-10 '>
-                <div className='flex md:justify-between justify-center items-center container mx-auto'>
+                <div className='flex justify-center items-center container mx-auto'>
                     <div className='flex items-center'>
                         <div className='w-24 '>
                             <Image src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
                         </div>
-                        <span className='uppercase md:text-3xl font-bold md:ml-5'>#todo es posible</span>
+                        <span className='uppercase md:text-3xl font-bold md:ml-5 text-2xl' style={{ color: "#ffee92" }}>#todo es posible</span>
                     </div>
-                    <div className='md:flex md:items-center md:w-1/4 hidden '>
-                        <div>
-                            <Image src='https://hi-sports.tv/media/LigaBBVA.png' alt='' />
-                        </div>
-                        <div>
-                            <Image src={imageHiEnergy} alt='logo' />
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </footer>

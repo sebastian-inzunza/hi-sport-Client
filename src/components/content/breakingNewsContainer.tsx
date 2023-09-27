@@ -418,12 +418,7 @@ export default function BreakingNewsContainer() {
 
             <Row justify='center' id='última hora'>
                 <Col xs={0} md={24}>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+
                 </Col>
                 <Col span={22}>
                     <Divider orientation='left' style={{ color: 'white', fontSize: '2.3em' }}>
@@ -518,7 +513,7 @@ export default function BreakingNewsContainer() {
                     </Card>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/CintaRosa.png" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/cintahisportsrosa.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
 
@@ -564,7 +559,7 @@ export default function BreakingNewsContainer() {
                     </Card>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/CintaAzul.png" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/cintahisportsAzul.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
 
@@ -622,7 +617,7 @@ export default function BreakingNewsContainer() {
                     </Card>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/Cinta.png" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/cintahisportsmorado.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
             <Row justify='center' id='última hora'>
@@ -645,7 +640,7 @@ export default function BreakingNewsContainer() {
                                                 <span>{item.titulo}</span>
                                             </div>
                                             <div className='mt-2'>
-                                                <span className='text-base text-white text-justify'>{item.descripcion}</span>
+                                                <span style={{ color: "#ffee92" }} className='text-base text-white text-justify'>{item.descripcion}</span>
                                             </div>
                                         </div>
                                         <div className='bg-violet-400/70 mt-4 rounded-bl-lg rounded-br-lg flex justify-between mx-auto'>
@@ -665,7 +660,7 @@ export default function BreakingNewsContainer() {
                     </div>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/Cinta.png" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/cintahisportsnegro.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
 

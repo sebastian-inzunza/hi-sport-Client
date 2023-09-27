@@ -1,16 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
 
-function Carousel({ children: slides }: { children: any }) {
+function Carousel({ children: slides, autoPlay = false }: { children: any, autoPlay?: boolean }) {
     const [current, setCurrent] = useState<number>(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(autoPlay);
 
     const prev = () => {
         setCurrent(current === 0 ? slides.length - 1 : current - 1);
     };
 
+    // const next = () => {
+    //     setCurrent(current === slides.length - 1 ? 0 : current + 1);
+    // };
+
     const next = () => {
-        setCurrent(current === slides.length - 1 ? 0 : current + 1);
+        if (current === slides.length - 1) {
+            setCurrent(0);
+        } else {
+            setCurrent(current + 1);
+        }
     };
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout = setTimeout(() => { }, 0);
+
+        if (isAutoPlaying) {
+            interval = setInterval(() => {
+                next();
+            }, 5000);
+        } else {
+            clearInterval(interval as NodeJS.Timeout);
+        }
+
+        return () => {
+            clearInterval(interval as NodeJS.Timeout);
+        };
+    }, [isAutoPlaying, current, slides.length]);
 
     return (
         <div className='overflow-hidden relative h-[6em] lg:h-full'>

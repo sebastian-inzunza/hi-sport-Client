@@ -14,16 +14,7 @@ export default function ProgramacionContainer() {
     const LMB = 'https://hi-sports.tv/media/LMB.png';
 
     const rows = [
-        {
-            hora: 7,
-            horario: '7:00 AM',
-            programacion: [hiEnergy, hiEnergy, hiEnergy, hiEnergy, hiEnergy, hiEnergy, hiEnergy],
-        },
-        {
-            hora: 8,
-            horario: '8:00 AM',
-            programacion: [puroFutbol, puroFutbol, puroFutbol, puroFutbol, puroFutbol, NCAA, puroFutbol],
-        },
+
         {
             hora: 9,
             horario: '9:00 AM',
@@ -49,50 +40,8 @@ export default function ProgramacionContainer() {
             horario: '5:00 PM',
             programacion: [puroFutbol, NCAA, LMB, NCAA, NCAA, ligaBBVA, NCAA],
         },
-        {
-            hora: 19,
-            horario: '7:00 PM',
-            programacion: [BLK, BLK, LMB, BLK, HipUnch, ligaBBVA, BLK],
-        },
-        {
-            hora: 21,
-            horario: '9:00 PM',
-            programacion: [puroFutbol, puroFutbol, LMB, puroFutbol, HipUnch, ligaBBVA, puroFutbol],
-        },
-        {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        },
-        {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        }, {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        }, {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        }, {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        }, {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        }, {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        }, {
-            hora: 22,
-            horario: '10:00 PM',
-            programacion: [hiNews, hiNews, hiNews, hiNews, HipUnch, BLK, hiNews],
-        },
+
+
     ];
 
     return (

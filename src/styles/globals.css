@@ -21,6 +21,7 @@ html {
 body {
   height: 100%;
   color: white;
+  font-family: 'Bebas Neue Bold', 'Bebas Neue', sans-serif;
 }
 
 /* FONDO PANTALLA */
@@ -103,10 +104,17 @@ body {
   }
 }
 .marginHome{
-  padding-top: 40vh;
+  padding-top: 20vh;
 }
 
-
+.en-vivo-icon {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 90%;
+  font-weight: bold;
+}
 
 
 /* BOTON INICIO */
