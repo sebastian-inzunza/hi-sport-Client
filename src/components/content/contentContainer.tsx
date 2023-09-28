@@ -38,7 +38,7 @@ export default function ContentContainer() {
             <Row justify='center' className='my-28 mx-auto'>
                 <Col span={24} className='content'>
                     <span className={`titleContent ${bebas.className} `}>
-                        <img src="https://hi-sports.tv/media/TodoEsPosible1.png" alt="" />
+                        <img src="https://hi-sports.tv/media/TodoEsPosible1.png" alt="Hastag" />
                     </span>
                 </Col>
             </Row>
