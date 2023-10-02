@@ -81,6 +81,7 @@ export default function Home() {
         </div>*/}
       <div className='background-image' />
       <HeaderContainer />
+      {/* <ContentContainer /> */}
       <ContentContainer />
       <BreakingNewsContainer />
       <ProgramacionContainer />

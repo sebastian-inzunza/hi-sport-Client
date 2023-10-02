@@ -9,6 +9,8 @@ module.exports = {
         extend: {
             colors: {
                 caliente: '#ff0002',
+                burger: 'rgba(245, 198, 255, 0.136)',
+                borderMorado: 'rgba(29, 12, 71, 0.4);',
             },
         },
     },

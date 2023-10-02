@@ -513,7 +513,7 @@ export default function BreakingNewsContainer() {
                     </Card>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/cintahisportsrosa.gif" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/CintaRosa.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
 
@@ -559,7 +559,7 @@ export default function BreakingNewsContainer() {
                     </Card>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/cintahisportsAzul.gif" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/CintaAzul.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
 
@@ -617,7 +617,7 @@ export default function BreakingNewsContainer() {
                     </Card>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/cintahisportsmorado.gif" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/CintaMorado.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
             <Row justify='center' id='última hora'>
@@ -660,7 +660,7 @@ export default function BreakingNewsContainer() {
                     </div>
                 </Col>
                 <div className=' relative mt-8'>
-                    <img src="https://hi-sports.tv/media/cintahisportsnegro.gif" className='md:w-full md:block hidden' alt="" />
+                    <img src="https://hi-sports.tv/media/CintaRosa.gif" className='md:w-full md:block hidden' alt="" />
                 </div>
             </Row>
 

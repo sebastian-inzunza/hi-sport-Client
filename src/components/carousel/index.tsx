@@ -42,7 +42,9 @@ function Carousel({ children: slides, autoPlay = false }: { children: any, autoP
             <div className='flex transition-transform ease-out duration-500' style={{ transform: `translateX(-${current * 100}%)` }}>
                 {slides}
             </div>
+
             <div className='absolute inset-0 flex justify-between items-center'>
+
                 <button onClick={prev} className='p-1 rounded-full shadow hover:bg-purple-800'>
                     <AiOutlineCaretLeft className='h-8 w-8' />
                 </button>
