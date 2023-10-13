@@ -1,21 +1,11 @@
 import React from 'react';
-import box from '../../assets/deportes/box.png';
-import futbol from '../../assets/deportes/futbol.png';
-import baseball from '../../assets/deportes/baseball.png';
-import futbolAmericano from '../../assets/deportes/futbolAmericano.png';
-import hiEnergy from '../../assets/hiEnergy.png';
-import Youtube from '../../assets/youtube.svg';
 import { Row, Col } from 'antd';
 import { Image } from '@nextui-org/react';
 
 type Props = {};
 
 const Footercontenido = (props: Props) => {
-    const imageBox = box.src;
-    const imageFutbol = futbol.src;
-    const imageFutbolAmericano = futbolAmericano.src;
-    const imageBaseball = baseball.src;
-    const imageHiEnergy = hiEnergy.src;
+
 
     return (
         <footer className='bg-gray-800/40 text-white pt-10 relative'>

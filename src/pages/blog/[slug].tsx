@@ -1,10 +1,13 @@
 import { GetServerSideProps } from 'next';
-import { SearchSlug } from '@/services/BlogsService';
+import { SearchSlug } from '../../services/BlogsService';
 import HeaderContainer from '@/components/header/headerContainer';
 import Head from 'next/head';
 import Link from "next/link";
 import { Col } from 'antd';
 import Footercontenido from "@/components/FooterContainer/footercontenido"
+import React from "react";
+
+
 
 type MyData = {
     title: string;

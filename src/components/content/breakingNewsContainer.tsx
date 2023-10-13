@@ -2,9 +2,9 @@ import { Row, Col, Divider } from "antd";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import Carousel from "../carousel";
 import Link from "next/link";
-import caliente from "../../assets/APP_Caliente_MX.svg";
 import { useEffect, useState } from "react";
 import { getBlogs } from "../../services/BlogsService";
+import React from "react";
 
 interface DataType {
   image: string;
