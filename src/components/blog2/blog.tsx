@@ -11,7 +11,7 @@ type Props = {};
 interface DataType {
   image: string;
   title: string;
-  slug: string; 
+  slug: string;
   content: string;
 }
 
@@ -57,19 +57,16 @@ const Blog = (props: Props) => {
 
   const fetchData = async () => {
     try {
-       const response = await SearchSlug(slug);
+      const response = await SearchSlug(slug);
       setBlog(response);
     } catch (error) {
       console.error("Error al cargar los datos", error);
     }
   };
-  
+
   useEffect(() => {
     fetchData();
   }, []);
-
-
-  console.log()
 
   return (
     <>
@@ -108,9 +105,7 @@ const Blog = (props: Props) => {
         <div>
           <div className="relative bg-stone-600/80 px-8 redondo container mx-auto">
             <div className="text-left md:text-4xl text-2xl py-4 font-bold mx-2 mb-4 leading-[1.5]">
-              <span>
-                {blog.title}
-              </span>
+              <span>{blog.title}</span>
             </div>
             <div className="relative">
               <img
@@ -123,14 +118,16 @@ const Blog = (props: Props) => {
               </div>
             </div>
             <div className="pb-8 rounded-b-lg">
-              <div className="md:mx-16 pt-2 text-left">
+              <div className="md:ml-16 pt-2 text-left flex">
                 <div className="text-xl md:mr-33 md:w-3/4">
-              
-                 <p className="mb-10">
-                    {blog.content}
-                
-                  </p>
-                  
+                  <p className="my-10">{blog.content}</p>
+                </div>
+                <div className="w-1/4 ">
+                  <div className="flex justify-around ">
+                    <img className=" w-12" src="/iconsMa/face.png" alt="" />
+                    <img  className=" w-12" src="/iconsZyan/insta.png" alt="" />
+                    <img className=" w-12" src="/iconsMa/youtu.png" alt="" />
+                  </div>
                 </div>
 
                 {/* <div className='mt-10'>

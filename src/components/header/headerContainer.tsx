@@ -84,9 +84,9 @@ export default function HeaderContainer() {
                 </NavbarMenu>
 
                 <div className='md:flex items-center hidden'>
-                    <img className='w-10 mr-2' src='https://hi-sports.tv/media/Facebook.svg' alt='Follow us on Facebook' />
-                    <img className='w-16' src='https://hi-sports.tv/media/Instagram.svg' alt='Follow us on Instagram' />
-                    <img className='w-16' src='https://hi-sports.tv/media/twitter.svg' alt='Follow us on Twitter' />
+                    <img className='w-12 mr-1' src='/iconsMa/face.png' alt='Follow us on Facebook' />
+                    <img className='w-12 mr-1' src='/iconsMa/youtu.png' alt='Follow us on Instagram' />
+                    <img className='w-12' src='/iconsMa/spoty.png' alt='Follow us on Twitter' />
                 </div>
             </Navbar>
 

@@ -45,14 +45,14 @@ const Footercontenido = (props: Props) => {
                     <div className='w-full h-1 bg-white/80 mt-5'></div>
 
                     <ul className='flex md:w-1/4 md:justify-between md:mx-auto mt-10 justify-center'>
-                        <Col span={4} className='md:mx-3 mx-6'>
-                            <img className='logoRedes ' src='https://hi-sports.tv/media/Facebook.svg' alt='Follow us on Facebook' />
+                        <Col span={6} className=''>
+                            <img className='logoRedes ' src='/iconsZyan/twitch.png' alt='Follow us on Facebook' />
                         </Col>
-                        <Col span={6} className='md:mx-3'>
-                            <img className='logoRedes' src='https://hi-sports.tv/media/Instagram.svg' alt='Follow us on Instagram' />
+                        <Col span={6} className=''>
+                            <img className='logoRedes' src='/iconsZyan/insta.png' alt='Follow us on Instagram' />
                         </Col>
-                        <Col span={6} className='mr-3'>
-                            <img className='logoRedes' src='https://hi-sports.tv/media/twitter.svg' alt='Follow us on Twitter' />
+                        <Col span={6} className=''>
+                            <img className='logoRedes' src='/iconsZyan/twiter.png' alt='Follow us on Twitter' />
                         </Col>
                     </ul>
                 </div>

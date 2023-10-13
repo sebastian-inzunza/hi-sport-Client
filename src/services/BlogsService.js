@@ -1,7 +1,6 @@
 // services/apiService.js
 import axios from 'axios';
 
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 
 export const getBlogs = async () => {
@@ -9,7 +8,7 @@ export const getBlogs = async () => {
     const page = 1;
   
     try {
-      const response = await axios.get(`${apiKey}/notes`)
+      const response = await axios.get(`https://hi-sports-fecdbeff6cd3.herokuapp.com/notes`)
       
 
       if (response.status === 200) {
@@ -28,7 +27,7 @@ export const getBlogs = async () => {
   export const SearchSlug = async (slug) => {
 
     try {
-      const response = await axios.get(`${apiKey}/notes/${slug}`)
+      const response = await axios.get(`https://hi-sports-fecdbeff6cd3.herokuapp.com/notes/${slug}`)
 
       if (response.status === 200) {
         
