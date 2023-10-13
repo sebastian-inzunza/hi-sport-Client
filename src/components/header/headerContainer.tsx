@@ -12,7 +12,7 @@ export default function HeaderContainer() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     const menuItems = ['INICIO', 'PROGRAMACIÓN', 'ÚLTIMA HORA'];
-    const menuItemsHamburguer = ['Breaking News', 'Hi News', 'Programación', 'Contenido HS', 'Podcast', 'Próximos eventos', 'Hi Punch', 'Pepsi Center', 'Copa Francia', 'Talento'];
+    const menuItemsHamburguer = ['Breaking News', 'Hi News', 'Programación', 'LMB','Contenido HS', 'Puro Fútbol', 'Only Fut', 'Hi Energy','Hi Speed','Liga de Expanción', 'Podcast', 'Próximos eventos', 'Hi Punch', 'Pepsi Center', 'Copa Francia', 'Talento'];
     const verMenu = (value: boolean) => {
         console.log('value', value);
         setIsMenuOpen(value);
@@ -35,7 +35,7 @@ export default function HeaderContainer() {
                 <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' style={{ color: 'white' }} />
 
                 <div className='md:flex items-center hidden'>
-                    <Button className='mi-boton' type='default' style={{ border: 'none', width: '3rem', height: '3rem' }} onClick={showDrawer} icon={<MenuOutlined className='text-white icon-container' style={{ fontSize: '30px' }} />} />
+                    <Button className='mi-boton' style={{ border: 'none', width: '3rem', height: '3rem', color: "white" }} onClick={showDrawer} icon={<MenuOutlined className=' icon-container' style={{ fontSize: '30px' }} />} />
                 </div>
 
                 <div className=' md:flex items-center hidden'>
@@ -53,19 +53,19 @@ export default function HeaderContainer() {
 
                 <div className='hidden sm:flex gap-11 itemNavBar'>
                     <NavbarItem>
-                        <Link className='itemNavBar' href='/'>
+                        <Link className='itemNavBar' href='/' style={{  color: "#ffee92" }}>
                             <HomeOutlined style={{ marginRight: '.5em' }} />
                             INICIO
                         </Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link className='itemNavBar' href='#programación'>
+                        <Link className='itemNavBar' href='#programación' style={{  color: "#ffee92" }}>
                             <CalendarOutlined style={{ marginRight: '.5em' }} />
                             PROGRAMACIÓN
                         </Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link className='itemNavBar' href='#última hora' aria-current='page'>
+                        <Link className='itemNavBar' href='#última hora' aria-current='page' style={{  color: "#ffee92" }}>
                             <ClockCircleOutlined style={{ marginRight: '.5em' }} />
                             ÚLTIMA HORA
                         </Link>
@@ -104,7 +104,7 @@ export default function HeaderContainer() {
                     open={open}
                 >
                     {menuItemsHamburguer.map((item, index) => (
-                        <button key={index} style={{ color: '#ffee92' }} className={`flex justify-center text-xl mb-3 w-full py-3 rounded-md hover:bg-burger border-2 border-borderMorado`}>
+                        <button key={index} style={{ color: '#ffee92' }} className={`flex justify-center text-xl  mb-3 w-full py-3 rounded-md hover:bg-burger border-2 border-borderMorado`}>
                             {item}
                         </button>
                     ))}

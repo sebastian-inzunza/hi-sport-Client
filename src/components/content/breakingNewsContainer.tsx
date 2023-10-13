@@ -4,6 +4,20 @@ import Carousel from '../carousel';
 import Link from 'next/link';
 import caliente from "../../assets/APP_Caliente_MX.svg"
 import { useEffect, useState } from 'react';
+import { getBlogs } from "../../services/BlogsService";
+
+
+
+
+interface DataType {
+    image: string;
+    title: string;
+    slug: string; 
+    content: string;
+  }
+  
+  
+  
 const listCarouselDesk = [
     {
         lista: [
@@ -312,73 +326,98 @@ const listColumnistas = [
     { source: 'https://hi-sports.tv/media/columnista8.png', nombre: 'Raúl Sarmiento' },
 ];
 
-const listaBlog = [
-    {
-        id: 1,
-        source: 'https://imgs.search.brave.com/5LZU3-kdf7ODBYc5x5y7NY-xjq8VNSJvpMpaEogTW_w/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hczAx/LmVwaW1nLm5ldC9m/dXRib2wvaW1hZ2Vu/ZXMvMjAyMi8wNi8w/My9wcmltZXJhLzE2/NTQyNzQ0NDdfODUz/NjU3XzE2NTQyNzQ3/MjVfcG9ydGFkYV9u/b3JtYWxfcmVjb3J0/ZTIuanBn',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'Pumas',
-    },
-    {
-        id: 2,
-        source: 'https://imgs.search.brave.com/MdriCZG47qUVJ8eKaBNnCU3luJO7t3cVP-noaaGCyKc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS0z/LWUxNTg3NDI4NzUz/NTkwLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'America',
-    },
-    {
-        id: 3,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'Liga MX',
-    },
-    {
-        id: 4,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'Pumas',
-    },
-    {
-        id: 9,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'America',
-    },
-    {
-        id: 5,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'Liga Mx',
-    },
-    {
-        id: 6,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'Pumas',
-    },
-    {
-        id: 7,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'America',
-    },
-    {
-        id: 8,
-        source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
-        titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
-        descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
-        etiqueta: 'Liga Mx',
-    },
-];
+// const listaBlog = [
+//     {
+//         id: 1,
+//         source: 'https://imgs.search.brave.com/5LZU3-kdf7ODBYc5x5y7NY-xjq8VNSJvpMpaEogTW_w/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hczAx/LmVwaW1nLm5ldC9m/dXRib2wvaW1hZ2Vu/ZXMvMjAyMi8wNi8w/My9wcmltZXJhLzE2/NTQyNzQ0NDdfODUz/NjU3XzE2NTQyNzQ3/MjVfcG9ydGFkYV9u/b3JtYWxfcmVjb3J0/ZTIuanBn',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'Pumas',
+//     },
+//     {
+//         id: 2,
+//         source: 'https://imgs.search.brave.com/MdriCZG47qUVJ8eKaBNnCU3luJO7t3cVP-noaaGCyKc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS0z/LWUxNTg3NDI4NzUz/NTkwLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'America',
+//     },
+//     {
+//         id: 3,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'Liga MX',
+//     },
+//     {
+//         id: 4,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'Pumas',
+//     },
+//     {
+//         id: 9,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'America',
+//     },
+//     {
+//         id: 5,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'Liga Mx',
+//     },
+//     {
+//         id: 6,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'Pumas',
+//     },
+//     {
+//         id: 7,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'America',
+//     },
+//     {
+//         id: 8,
+//         source: 'https://imgs.search.brave.com/PF8NFRsdU_fz82OUzuP35Jxm1U7eIJ9WGyjSz9oPNBM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9odW1h/bmlkYWRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvZGVwb3J0ZS02/LWUxNTg3NDI5Njc3/NjUyLmpwZw',
+//         titulo: 'CHINO HUERTA SOBRE ESTAR EN EL TRICOLOR: HABÍA TRABAJADO MUCHO, POR FIN SE PUDO DAR',
+//         descripcion: 'El jugador de los Pumas recibió su primer llamado a la Selección y ya está bajo las órdenes de Jimmy Lozano',
+//         etiqueta: 'Liga Mx',
+//     },
+// ];
+
+
+
 export default function BreakingNewsContainer() {
     const [showIntersectionObserver, setShowIntersectionObserver] = useState(false);
+
+    const [listaBlog, setListaBlog] = useState<DataType[]>([
+        {
+        image: "",
+        title: "",
+        slug: "",
+        content: "",
+      }
+    ]);
+
+  const fetchData = async () => {
+    try {
+      const response = await getBlogs();
+      setListaBlog(response)
+    } catch (error) {
+      console.error("Error al cargar los datos", error);
+    } 
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
     useEffect(() => {
         // Verificar si IntersectionObserver está disponible en el navegador
@@ -627,20 +666,20 @@ export default function BreakingNewsContainer() {
                             <div className='cardEffect' key={index}>
                                 <div className={`p-2 mt-${index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0}`} >
                                     <div className='relative overflow-hidden group'>
-                                        <Link href={`/blog?id=${item.id}`}>
-                                            <img src={item.source} alt='Imagen de la columna' className='w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300' />
+                                        <Link href={`/blog?slug=${item.slug}`}>
+                                            <img src={item.image} alt='Imagen de la columna' className='w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300' />
                                         </Link>
                                         <div className={`absolute top-0 left-0 ${index % 3 === 0 ? 'bg-gradient-to-r from-blue-500 to-green-500' : index % 3 === 1 ? 'bg-gradient-to-r from-blue-500/40 to-blue-900' : 'bg-gradient-to-r from-red-500 to-pink-500'} text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}>
-                                            {item.etiqueta}
+                                            {/* {item.etiqueta} */} PUMAS
                                         </div>
                                     </div>
                                     <div className='bg-purple-600/40 rounded-b-lg'>
                                         <div className='mx-3 pt-2'>
                                             <div className='text-md text-white font-bold uppercase text-center'>
-                                                <span>{item.titulo}</span>
+                                                <span>{item.title}</span>
                                             </div>
                                             <div className='mt-2'>
-                                                <span style={{ color: "#ffee92" }} className='text-base text-white text-justify'>{item.descripcion}</span>
+                                                <span style={{ color: "#ffee92" }} className='text-base text-white text-justify'>{item.content}</span>
                                             </div>
                                         </div>
                                         <div className='bg-violet-400/70 mt-4 rounded-bl-lg rounded-br-lg flex justify-between mx-auto'>

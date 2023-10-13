@@ -1,44 +1,38 @@
-import React from 'react';
-import { Bebas_Neue } from 'next/font/google';
-import { Row, Col } from 'antd';
-import { Button, Image, Card } from '@nextui-org/react';
-import Link from 'next/link';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-
+import React from "react";
+import { Bebas_Neue } from "next/font/google";
+import { Row, Col } from "antd";
+import { Button, Image, Card } from "@nextui-org/react";
+import Link from "next/link";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const listVideoLive = [
-    {
-        imgVideo: "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-        url: "https://www.youtube.com/watch?v=_znd2EKiTUc"
+  {
+    imgVideo:
+      "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
+    url: "https://www.youtube.com/watch?v=_znd2EKiTUc",
+  },
+  {
+    imgVideo:
+      "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
 
-    },
-    {
-        imgVideo: "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
+    url: "https://www.youtube.com/watch?v=twOMe6o1eLU",
+  },
+  {
+    imgVideo:
+      "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
+    url: "https://www.youtube.com/watch?v=PSanJ5swYBM",
+  },
+];
 
-        url: "https://www.youtube.com/watch?v=twOMe6o1eLU"
-
-    },
-    {
-        imgVideo: "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-        url: "https://www.youtube.com/watch?v=PSanJ5swYBM"
-    }
-
-]
-
-
-import { ArrowRightOutlined } from '@ant-design/icons';
-
-
+import { ArrowRightOutlined } from "@ant-design/icons";
 
 export default function ContentContainer() {
-    return (
-        <>
-            <Row justify={'center'} id='inicio'>
-                <Col span={22}>
-
-                    {/* <div className=' justify-end hidden md:flex'>
+  return (
+    <>
+      <Row justify={"center"} id="inicio">
+        <Col span={22}>
+          {/* <div className=' justify-end hidden md:flex'>
                         <Col xs={24} sm={24} md={6} className='mt-10'>
                             <Row justify='center' gutter={[8, 8]}>
                                 <Col span={4}>
@@ -54,10 +48,10 @@ export default function ContentContainer() {
                         </Col>
 
                     </div> */}
-                </Col>
-            </Row>
+        </Col>
+      </Row>
 
-            {/* <div className='my-28 mx-auto'>
+      {/* <div className='my-28 mx-auto'>
                 <div className='flex justify-center my-56'>
                     <span className={`titleContent ${bebas.className} `}>
                         <img src="https://hi-sports.tv/media/TodoEsPosible1.png" alt="Hastag" />
@@ -105,7 +99,7 @@ export default function ContentContainer() {
                 </div>
             </div>  */}
 
-            {/* <Carousel>
+      {/* <Carousel>
                 {listVideoLive.map((page, index) => (
                     <div className='flex justify-center items-center mt-5' key={index} >
                         <div className='w-screen flex justify-center items-center'>
@@ -135,54 +129,47 @@ export default function ContentContainer() {
                 ))}
             </Carousel> */}
 
-            <Carousel showThumbs={false} showStatus={false} showIndicators={false}>
-                {listVideoLive.map((page, index) => (
-                    <div className='flex justify-center items-center my-10' key={index}>
-                        <div className='w-screen flex justify-center items-center'>
-                            <div className='max-w-screen-xl relative'>
-                                <div className='flex justify-end'>
-                                    <div className='m-2 text-white text-xl p-3 font-bold mt-4 absolute mb-4 ml-4'>
-                                        ESTAMOS EN <span className='en-vivo-icon'>VIVO</span>
-                                    </div>
-                                </div>
+      <Carousel showThumbs={false} showStatus={false} showIndicators={false}>
+        {listVideoLive.map((page, index) => (
+          <div className="flex justify-center items-center mt-6" key={index}>
+            <div className="w-screen lg:h-[770px] flex justify-center items-center">
+              <div className="absolute top-1 right-1 ">
+                <div className="m-2 text-white text-xl p-3 font-bold mt-4  mb-4 ml-4">
+                  ESTAMOS EN <span className="en-vivo-icon">VIVO</span>
+                </div>
+              </div>
 
-                                {/* Aplica un estilo CSS para establecer un ancho común */}
-                                <img
-                                    src={page.imgVideo}
-                                    className='w-[100%] max-w-[1500px] h-auto rounded-md' // Ajusta el valor de maxWidth según tus necesidades
-                                    alt='banner1'
-                                />
+              <img src={page.imgVideo} alt="banner1" />
 
-                                <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md'></div>
-                                <Link href={page.url} target='_blank'>
-                                    <Button className='botonInicio absolute bottom-0 left-0 m-2' endContent={<ArrowRightOutlined />}>
-                                        VER AHORA
-                                    </Button>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </Carousel>
-
-
-
-            <div className=' relative mt-4'>
-                <img src="https://hi-sports.tv/media/CintaNaranja.gif" className='md:w-full md:block hidden' alt="" />
+              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div>
+              <Link href={page.url} target="_blank">
+                <Button
+                  className="botonInicio absolute bottom-0 left-0 m-2"
+                  endContent={<ArrowRightOutlined />}
+                >
+                  VER AHORA
+                </Button>
+              </Link>
             </div>
+          </div>
+          // </div>
+        ))}
+      </Carousel>
 
-            <Row>
-                <Col xs={24} md={0}>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+      <div className=" relative mt-4">
+        <img
+          src="https://hi-sports.tv/media/CintaNaranja.gif"
+          className="md:w-full md:block hidden"
+          alt=""
+        />
+      </div>
 
+      <Row>
+        <Col xs={24} md={0}>
+          <br />
+        </Col>
 
-                </Col>
-
-                {/* <Col xs={24} md={6}>
+        {/* <Col xs={24} md={6}>
 
                         <Link href='https://www.youtube.com/watch?v=fU8-RTJz69k' target='_blank'>
                             <Button style={{ width: '100%' }} className='botonInicio' endContent={<ArrowRightOutlined />}>
@@ -190,9 +177,7 @@ export default function ContentContainer() {
                             </Button>
                         </Link>
                     </Col> */}
-
-
-            </Row >
-        </>
-    );
+      </Row>
+    </>
+  );
 }
