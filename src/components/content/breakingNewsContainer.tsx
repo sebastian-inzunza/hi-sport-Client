@@ -350,6 +350,36 @@ const listColumnistas = [
     nombre: "Raúl Sarmiento",
   },
   {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+  {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+  {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+
+  {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+  {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+  {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+  {
+    source: "https://hi-sports.tv/media/columnista1.png",
+    nombre: "Raúl Sarmiento",
+  },
+
+  {
     source: "https://hi-sports.tv/media/columnista2.png",
     nombre: "Raúl Sarmiento",
   },
@@ -830,7 +860,7 @@ export default function BreakingNewsContainer() {
            
          <div className="grid md:grid-cols-3 md:gap-4 mt-8">
            {listaBlog.map((item, index) => (
-             <div className="cardEffect" key={index}>
+             <div key={index}>
                <div
                  className={`p-2 mt-${
                    index % 3 === 0 ? 0 : index % 3 === 1 ? 4 : 0
@@ -841,7 +871,7 @@ export default function BreakingNewsContainer() {
                      <img
                        src={item.image}
                        alt="Imagen de la columna"
-                       className="w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300"
+                       className="w-full h-[17em] lg:h-[18em] transform scale-100 group-hover:scale-110 transition-transform duration-300"
                      />
                    </Link>
                    <div

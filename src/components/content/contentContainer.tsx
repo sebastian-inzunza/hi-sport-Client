@@ -144,7 +144,7 @@ export default function ContentContainer() {
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div>
               <Link href={page.url} target="_blank">
                 <Button
-                  className="botonInicio absolute bottom-0 left-0 m-2"
+                  className="botonInicio absolute bottom-0 left-2  lg:bottom-28 lg:left-64 lg:m-2"
                   endContent={<ArrowRightOutlined />}
                 >
                   VER AHORA

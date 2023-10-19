@@ -116,9 +116,13 @@ function MyPage({ data }: { data: MyData }) {
                 </div>
                 <div className="w-1/4">
                   <div className="md:flex justify-around hidden">
-                    <img className=" w-12" src="/iconsMa/face.png" alt="" />
-                    <img  className=" w-12" src="/iconsZyan/insta.png" alt="" />
-                    <img className=" w-12" src="/iconsMa/youtu.png" alt="" />
+                    <img className=" w-12" src="/social/facebook.png" alt="" />
+                    <img className=" w-12" src="/social/insta.png" alt="" />
+                    <img className=" w-12" src="/social/tiktok.png" alt="" />
+                    <img className=" w-12" src="/social/youtube.png" alt="" />
+
+
+
                   </div>
                 </div>
 

@@ -35,13 +35,14 @@ export default function HeaderContainer() {
                 <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' style={{ color: 'white' }} />
 
                 <div className='md:flex items-center hidden'>
-                    <Button className='mi-boton' style={{ border: 'none', width: '3rem', height: '3rem', color: "white" }} onClick={showDrawer} icon={<MenuOutlined className=' icon-container' style={{ fontSize: '30px' }} />} />
-                </div>
-
-                <div className=' md:flex items-center hidden'>
+                    <Button className='mi-boton' style={{ border: 'none', width: '3rem', height: '3rem', color: "#ffee92" }} onClick={showDrawer} icon={<MenuOutlined className=' icon-container' style={{ fontSize: '30px' }} />} />
+                    <div className=' md:flex items-center hidden'>
                     <img className='w-20' src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
                     <span className={`titleContent ${bebas.className} `}>#Todo es posible</span>
                 </div>
+                </div>
+
+                
 
                 {/* 
                 <NavbarContent className='justify-between' justify='start'>
@@ -84,9 +85,9 @@ export default function HeaderContainer() {
                 </NavbarMenu>
 
                 <div className='md:flex items-center hidden'>
-                    <img className='w-12 mr-1' src='/iconsMa/face.png' alt='Follow us on Facebook' />
-                    <img className='w-12 mr-1' src='/iconsMa/youtu.png' alt='Follow us on Instagram' />
-                    <img className='w-12' src='/iconsMa/spoty.png' alt='Follow us on Twitter' />
+                    <img className='w-12 mr-1' src='/social/facebook.png' alt='Follow us on Facebook' />
+                    <img className='w-12 mr-1' src='/social/insta.png' alt='Follow us on Instagram' />
+                    <img className='w-12' src='/social/spotify.png' alt='Follow us on Twitter' />
                 </div>
             </Navbar>
 
