@@ -4,6 +4,7 @@ import Carousel from "../carousel";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getBlogs } from "../../services/BlogsService";
+import { getPresentadores } from "../../services/PresentadoresService";
 import React from "react";
 
 interface DataType {
@@ -11,6 +12,12 @@ interface DataType {
   title: string;
   slug: string;
   content: string;
+}
+
+interface DataTypeCast {
+  image: string;
+  name: string;
+  url: string;
 }
 
 const listCarouselDesk = [
@@ -480,6 +487,7 @@ export default function BreakingNewsContainer() {
     useState(false);
 
   const [listaBlog, setListaBlog] = useState<DataType[]>([]);
+  const [listaPresentadores, setPresentadores] = useState<DataTypeCast[]>([]);
 
   const fetchData = async () => {
     try {
@@ -490,9 +498,23 @@ export default function BreakingNewsContainer() {
     }
   };
 
+  const fetchDataCast = async () => {
+    try {
+      const response = await getPresentadores();
+      setPresentadores(response);
+    } catch (error) {
+      console.error("Error al cargar los datos", error);
+    }
+  };
+
+
   useEffect(() => {
     fetchData();
+    fetchDataCast()
   }, []);
+
+
+
 
   useEffect(() => {
     // Verificar si IntersectionObserver está disponible en el navegador
@@ -527,6 +549,7 @@ export default function BreakingNewsContainer() {
   const toggleExpand = () => {
     setExpanded(!expanded);
   };
+
 
   return (
     <>
@@ -784,8 +807,9 @@ export default function BreakingNewsContainer() {
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={22}>
                   <Row justify="space-around" gutter={[8, 8]}>
-                    {listColumnistas.map((item, i) => (
+                    {listaPresentadores.map((item, i) => (
                       <Col span={3} key={i}>
+                        <Link href={item.url} target="_blank">
                         <Card
                           isFooterBlurred
                           radius="lg"
@@ -793,17 +817,18 @@ export default function BreakingNewsContainer() {
                           style={{ backgroundColor: "transparent" }}
                         >
                           <Image
-                            src={item.source}
+                            src={item.image}
                             className="columnist"
                             alt="Columnist"
                           />
 
                           <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
                             <p className="text-tiny text-white/80">
-                              {item.nombre}
+                              {item.name}
                             </p>
                           </CardFooter>
                         </Card>
+                        </Link>
                       </Col>
                     ))}
                   </Row>
@@ -817,25 +842,28 @@ export default function BreakingNewsContainer() {
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={22}>
                   <Row justify="space-around" gutter={[8, 8]}>
-                    {listColumnistas.map((item, i) => (
+                    {listaPresentadores.map((item, i) => (
                       <Col span={12} key={i}>
+                        <Link href={item.url} target="_blank">
+
                         <Card
                           isFooterBlurred
                           radius="lg"
                           className="border-none zoom bg-purple-600/40"
                         >
                           <Image
-                            src={item.source}
+                            src={item.url}
                             className="columnist"
                             alt="Columnist"
                           />
 
                           <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1  py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
                             <p className="text-tiny text-white/80">
-                              {item.nombre}
+                              {item.name}
                             </p>
                           </CardFooter>
                         </Card>
+                        </Link>
                       </Col>
                     ))}
                   </Row>

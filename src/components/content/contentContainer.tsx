@@ -1,33 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Bebas_Neue } from "next/font/google";
 import { Row, Col } from "antd";
 import { Button, Image, Card } from "@nextui-org/react";
 import Link from "next/link";
+import { getBanners } from "../../services/BannersService";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const listVideoLive = [
-  {
-    imgVideo:
-      "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-    url: "https://www.youtube.com/watch?v=_znd2EKiTUc",
-  },
-  {
-    imgVideo:
-      "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
 
-    url: "https://www.youtube.com/watch?v=twOMe6o1eLU",
-  },
-  {
-    imgVideo:
-      "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-    url: "https://www.youtube.com/watch?v=PSanJ5swYBM",
-  },
-];
+
+interface DataType {
+  image: string;
+  url: string;
+}
+
+// const listVideoLive = [
+//   {
+//     imgVideo:
+//       "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
+//     url: "https://www.youtube.com/watch?v=_znd2EKiTUc",
+//   },
+//   {
+//     imgVideo:
+//       "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
+
+//     url: "https://www.youtube.com/watch?v=twOMe6o1eLU",
+//   },
+//   {
+//     imgVideo:
+//       "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
+//     url: "https://www.youtube.com/watch?v=PSanJ5swYBM",
+//   },
+// ];
 
 import { ArrowRightOutlined } from "@ant-design/icons";
 
+
 export default function ContentContainer() {
+
+const [banner, setBanner] = useState<DataType[]>([]);
+
+const fetchData = async () => {
+  try {
+    const response = await getBanners();
+    setBanner(response);
+  } catch (error) {
+    console.error("Error al cargar los datos", error);
+  }
+};
+
+
+useEffect(() => {
+  fetchData();
+}, []);
+
+console.log(banner)
   return (
     <>
       <Row justify={"center"} id="inicio">
@@ -130,7 +157,7 @@ export default function ContentContainer() {
             </Carousel> */}
 
       <Carousel showThumbs={false} showStatus={false} showIndicators={false}>
-        {listVideoLive.map((page, index) => (
+        {banner.map((page, index) => (
           <div className="flex justify-center items-center mt-6" key={index}>
             <div className="w-screen lg:h-[770px] flex justify-center items-center">
               <div className="absolute top-1 right-1 ">
@@ -139,7 +166,7 @@ export default function ContentContainer() {
                 </div>
               </div>
 
-              <img src={page.imgVideo} alt="banner1" />
+              <img src={page.image} alt="banner1" />
 
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div>
               <Link href={page.url} target="_blank">
