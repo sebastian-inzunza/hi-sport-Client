@@ -228,6 +228,7 @@ export default function HeaderContainer() {
         >
           {menu.map((item, index) => (
             <Link
+            key={index}
               className="flex flex-col space-y-4"
               target="_blank"
               href={item.url}
