@@ -13,6 +13,7 @@ type MyData = {
     title: string;
   image: string;
   content: string;
+  category: {name:string}
 
 };
 
@@ -49,14 +50,18 @@ export const getServerSideProps: GetServerSideProps<{ data: MyData }> = async (c
     const { slug } = context.params ?? {};;
 
   const data: MyData = await SearchSlug(slug);
+  
 
   return {
     props: { data },
   };
 };
 
+
 function MyPage({ data }: { data: MyData }) {
   // Utiliza los datos cargados en la págin
+
+  console.log(data)
   return (
     <>
    <Head>
@@ -105,8 +110,8 @@ function MyPage({ data }: { data: MyData }) {
                 alt="Imagen de la columna"
                 className="w-full md:h-[50em] object-cover object-center rounded-md"
               />
-              <div className="absolute top-0 left-0  flex justify-center items-center text-white md:text-3xl md:text-xl text-sm px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md ">
-                {"PUMAS"}
+              <div className="absolute top-0 left-0  flex justify-center items-center text-white md:text-xl text-sm px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md ">
+                {}
               </div>
             </div>
             <div className="pb-8 rounded-b-lg">

@@ -12,6 +12,7 @@ interface DataType {
   title: string;
   slug: string;
   content: string;
+  category: {name:string}
 }
 
 interface DataTypeCast {
@@ -911,7 +912,7 @@ export default function BreakingNewsContainer() {
                          : "bg-gradient-to-r from-red-500 to-pink-500"
                      } text-white text-xl px-3 py-2 transform -translate-y-1/2 vertical-text rounded-t-md`}
                    >
-                     {/* {item.etiqueta} */} PUMAS
+                     {item.category.name}
                    </div>
                  </div>
                  <div className="bg-purple-600/40 rounded-b-lg">

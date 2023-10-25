@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getBanners = async () => {
   
     try {
-      const response = await axios.get(`https://hi-sports-fecdbeff6cd3.herokuapp.com/banner`)
+      const response = await axios.get(`https://hi-sports-v1-5056641427c0.herokuapp.com/banner`)
       
 
       if (response.status === 200) {
@@ -24,7 +24,7 @@ export const getBanners = async () => {
   export const getLateralMenu = async () => {
   
     try {
-      const response = await axios.get(`https://hi-sports-fecdbeff6cd3.herokuapp.com/Lateral-Menu`)
+      const response = await axios.get(`https://hi-sports-v1-5056641427c0.herokuapp.com/Lateral-Menu`)
       
 
       if (response.status === 200) {
