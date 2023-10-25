@@ -852,7 +852,7 @@ export default function BreakingNewsContainer() {
                           className="border-none zoom bg-purple-600/40"
                         >
                           <Image
-                            src={item.url}
+                            src={item.image}
                             className="columnist"
                             alt="Columnist"
                           />

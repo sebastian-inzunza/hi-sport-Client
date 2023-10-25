@@ -86,14 +86,27 @@ export default function HeaderContainer() {
     <>
       <Navbar
         maxWidth={"2xl"}
-        className=" flex space-between fondoNav items-center"
+        className=" fondoNav items-center"
         onMenuOpenChange={setIsMenuOpen}
       >
+        <div className="flex items-center lg:hidden ">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
           style={{ color: "white" }}
         />
+         <div className=" lg:hidden flex items-center ml-3 ">
+            <img
+              className="w-16"
+              src="https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png"
+              alt="logo"
+            />
+            <span className={`titleContent ${bebas.className}  text-xl `}>
+              #Todo es posible
+            </span>
+          </div>
+        </div>
+        
 
         <div className="md:flex items-center hidden">
           <Button
