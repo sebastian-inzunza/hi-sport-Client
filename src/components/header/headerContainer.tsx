@@ -54,7 +54,7 @@ export default function HeaderContainer() {
     "Talento",
   ];
   const verMenu = (value: boolean) => {
-    console.log("value", value);
+  
     setIsMenuOpen(value);
   };
 
@@ -90,12 +90,12 @@ export default function HeaderContainer() {
         onMenuOpenChange={setIsMenuOpen}
       >
         <div className="flex items-center lg:hidden ">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-          style={{ color: "white" }}
-        />
-         <div className=" lg:hidden flex items-center ml-3 ">
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+            style={{ color: "white" }}
+          />
+          <div className=" lg:hidden flex items-center ml-3 ">
             <img
               className="w-16"
               src="https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png"
@@ -106,7 +106,6 @@ export default function HeaderContainer() {
             </span>
           </div>
         </div>
-        
 
         <div className="md:flex items-center hidden">
           <Button
@@ -198,21 +197,27 @@ export default function HeaderContainer() {
         </NavbarMenu>
 
         <div className="md:flex items-center hidden">
-          <img
-            className="w-12 mr-1"
-            src="/social/facebook.png"
-            alt="Follow us on Facebook"
-          />
-          <img
-            className="w-12 mr-1"
-            src="/social/insta.png"
-            alt="Follow us on Instagram"
-          />
-          <img
-            className="w-12"
-            src="/social/spotify.png"
-            alt="Follow us on Twitter"
-          />
+          <Link href="https://www.facebook.com/hisportst" target="_blank">
+            <img
+              className="w-12 mr-1"
+              src="/social/facebook.png"
+              alt="Follow us on Facebook"
+            />
+          </Link>
+          <Link href="https://www.instagram.com/hisportstv" target="_blank">
+            <img
+              className="w-12 mr-1"
+              src="/social/insta.png"
+              alt="Follow us on Instagram"
+            />
+          </Link>
+          <Link href="https://www.youtube.com/@HiSportsTV1" target="_blank">
+            <img
+              className="w-12"
+              src="/social/youtube.png"
+              alt="Follow us on Twitter"
+            />
+          </Link>
         </div>
       </Navbar>
 
@@ -241,7 +246,7 @@ export default function HeaderContainer() {
         >
           {menu.map((item, index) => (
             <Link
-            key={index}
+              key={index}
               className="flex flex-col space-y-4"
               target="_blank"
               href={item.url}

@@ -7,8 +7,6 @@ import { getBanners } from "../../services/BannersService";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-
-
 interface DataType {
   image: string;
   url: string;
@@ -33,146 +31,45 @@ interface DataType {
 //   },
 // ];
 
-import { ArrowRightOutlined } from "@ant-design/icons";
-
+import { CaretRightOutlined } from "@ant-design/icons";
 
 export default function ContentContainer() {
+  const [banner, setBanner] = useState<DataType[]>([]);
 
-const [banner, setBanner] = useState<DataType[]>([]);
+  const fetchData = async () => {
+    try {
+      const response = await getBanners();
+      setBanner(response);
+    } catch (error) {
+      console.error("Error al cargar los datos", error);
+    }
+  };
 
-const fetchData = async () => {
-  try {
-    const response = await getBanners();
-    setBanner(response);
-  } catch (error) {
-    console.error("Error al cargar los datos", error);
-  }
-};
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 
-useEffect(() => {
-  fetchData();
-}, []);
-
-console.log(banner)
   return (
     <>
-      <Row justify={"center"} id="inicio">
-        <Col span={22}>
-          {/* <div className=' justify-end hidden md:flex'>
-                        <Col xs={24} sm={24} md={6} className='mt-10'>
-                            <Row justify='center' gutter={[8, 8]}>
-                                <Col span={4}>
-                                    <img className='logoRedes' src='https://hi-sports.tv/media/Facebook.svg' alt='Follow us on Facebook' />
-                                </Col>
-                                <Col span={6}>
-                                    <img className='logoRedes' src='https://hi-sports.tv/media/Instagram.svg' alt='Follow us on Instagram' />
-                                </Col>
-                                <Col span={6}>
-                                    <img className='logoRedes' src='https://hi-sports.tv/media/twitter.svg' alt='Follow us on Twitter' />
-                                </Col>
-                            </Row>
-                        </Col>
-
-                    </div> */}
-        </Col>
-      </Row>
-
-      {/* <div className='my-28 mx-auto'>
-                <div className='flex justify-center my-56'>
-                    <span className={`titleContent ${bebas.className} `}>
-                        <img src="https://hi-sports.tv/media/TodoEsPosible1.png" alt="Hastag" />
-                    </span> 
-
-
-                    <div >
-                        <div className="one6 prueba" ></div>
-                        <div className="one7 prueba" ></div>
-                        <div className="one8 prueba" ></div>
-                        <div className="one9 prueba" ></div>
-                        <div className="one10 prueba"></div>
-                        <div className="one11 prueba"></div>
-                        <div className="one12 prueba"></div>
-                        <div className="one13 prueba"></div>
-                        <div className="one14 prueba"></div>
-                        <div className="one15 prueba"></div>
-                        <div className="one16 prueba"></div>
-                        <div className="one17 prueba"></div>
-                        <div className="one18 prueba"></div>
-                        <div className="one19 prueba"></div>
-                        <div className="one20 prueba"></div>
-                        <div className="one21 prueba"></div>
-                        <div className="one22 prueba"></div>
-                        <div className="one23 prueba"></div>
-                        <div className="one24 prueba"></div>
-                        <div className="one25 prueba"></div>
-                        <div className="one26 prueba"></div>
-                        <div className="one27 prueba"></div>
-                        <div className="one28 prueba"></div>
-                        <div className="one29 prueba"></div>
-                        <div className="one30 prueba"></div>
-                        <div className="one31 prueba"></div>
-                        <div className="one32 prueba"></div>
-                        <div className="one33 prueba"></div>
-
-                    </div>
-
-
-
-
-
-
-
-                </div>
-            </div>  */}
-
-      {/* <Carousel>
-                {listVideoLive.map((page, index) => (
-                    <div className='flex justify-center items-center mt-5' key={index} >
-                        <div className='w-screen flex justify-center items-center'>
-                            <div className='max-w-screen-xl relative'>
-
-                                <div className='flex justify-end'>
-                                    <div className=' m-2 text-white text-xl p-3 font-bold mt-4 absolute  mb-4 ml-4 '>
-                                        ESTAMOS EN <span className='en-vivo-icon'>VIVO</span>
-
-                                    </div>
-                                </div>
-
-                                <img
-                                    src={page.imgVideo}
-                                    className='w-[1220px] h-auto rounded-md'
-                                    alt='banner1'
-
-                                />
-                                <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md'></div>
-
-                                <Button className='botonInicio absolute bottom-0 left-0 m-2' endContent={<ArrowRightOutlined />}>
-                                    VER AHORA
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </Carousel> */}
-
       <Carousel showThumbs={false} showStatus={false} showIndicators={false}>
         {banner.map((page, index) => (
           <div className="flex justify-center items-center mt-6" key={index}>
             <div className="w-screen lg:h-[770px] flex justify-center items-center">
-              <div className="absolute top-1 right-1 ">
+              {/* <div className="absolute top-1 right-1 ">
                 <div className="m-2 text-white text-xl p-3 font-bold mt-4  mb-4 ml-4">
                   ESTAMOS EN <span className="en-vivo-icon">VIVO</span>
                 </div>
-              </div>
+              </div> */}
 
               <img src={page.image} alt="banner1" />
 
-              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div>
+              {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div> */}
+
               <Link href={page.url} target="_blank">
                 <Button
-                  className="botonInicio absolute bottom-0 left-2  lg:bottom-28 lg:left-64 lg:m-2"
-                  endContent={<ArrowRightOutlined />}
+                  className="botonInicio absolute bottom-[4.5em] left-5  lg:bottom-[152px] lg:left-[87px] lg:m-2"
+                  startContent={<CaretRightOutlined />}
                 >
                   VER AHORA
                 </Button>
@@ -183,7 +80,7 @@ console.log(banner)
         ))}
       </Carousel>
 
-      <div className=" relative mt-4">
+      <div className=" relative">
         <img
           src="https://hi-sports.tv/media/CintaNaranja.gif"
           className="md:w-full md:block hidden"

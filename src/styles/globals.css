@@ -122,9 +122,9 @@ body {
   background-image: linear-gradient(to right, #014aad , #ca6ce6) !important;
   border-color: #13022e !important;
   color: white !important;
-  font-size: 2em !important;
-  height: 2em !important;
-  border-radius: 2em !important;
+  font-size: 3em !important;
+  height: 2.5em !important;
+  border-radius: .5em !important;
 }
 .botonInicio:hover {
   animation: animate 2s linear infinite;
@@ -157,6 +157,25 @@ body {
   animation: animate 8s linear infinite;
 }
 
+
+/* Estilos específicos para pantallas con un ancho máximo de 600px */
+@media (max-width: 600px) {
+  .botonInicio {
+    
+
+    font-size: 2em !important;
+    height: 2em !important; 
+  }
+}
+
+/* Estilos específicos para pantallas con un ancho máximo de 400px */
+@media (max-width: 400px) {
+  .botonInicio {
+    
+    font-size: .7em !important;
+    height: 3em !important;
+  }
+}
 
 /* LOGO DE REDES SOCIALES */
 .logoRedes{

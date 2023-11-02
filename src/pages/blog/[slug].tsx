@@ -1,70 +1,89 @@
-import { GetServerSideProps } from 'next';
-import { SearchSlug } from '../../services/BlogsService';
-import HeaderContainer from '@/components/header/headerContainer';
-import Head from 'next/head';
+import { GetServerSideProps } from "next";
+import { SearchSlug, SearchSlugVideo } from "../../services/BlogsService";
+import HeaderContainer from "@/components/header/headerContainer";
+import Head from "next/head";
 import Link from "next/link";
-import { Col } from 'antd';
-import Footercontenido from "@/components/FooterContainer/footercontenido"
-import React from "react";
-
-
+import { Col } from "antd";
+import Footercontenido from "@/components/FooterContainer/footercontenido";
+import React, { useEffect, useState } from "react";
+import { getPublicidad } from "../../services/publicidadService";
 
 type MyData = {
-    title: string;
+  title: string;
   image: string;
   content: string;
-  category: {name:string}
-
+  category: { name: string };
 };
 
-
 const notasSimilares = [
-    {
-      lista: {
-        id: 1,
-        source:
-          "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
-        titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
-      },
+  {
+    lista: {
+      id: 1,
+      source:
+        "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
+      titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
     },
-    {
-      lista: {
-        id: 2,
-        source:
-          "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
-        titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
-      },
+  },
+  {
+    lista: {
+      id: 2,
+      source:
+        "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
+      titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
     },
-    {
-      lista: {
-        id: 3,
-        source:
-          "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
-        titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
-      },
+  },
+  {
+    lista: {
+      id: 3,
+      source:
+        "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
+      titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
     },
-  ];
+  },
+];
 
-export const getServerSideProps: GetServerSideProps<{ data: MyData }> = async (context) => {
+export const getServerSideProps: GetServerSideProps<{ data: any }> = async (
+  context
+) => {
+  const { slug } = context.params ?? {};
+  const { type } = context.query;
 
-    const { slug } = context.params ?? {};;
-
-  const data: MyData = await SearchSlug(slug);
-  
+  let data;
+  if (!type) {
+    data = await SearchSlug(slug);
+  } else {
+    data = await SearchSlugVideo(slug);
+  }
 
   return {
     props: { data },
   };
 };
 
-
-function MyPage({ data }: { data: MyData }) {
+function MyPage({ data }: { data: any }) {
+  interface DataType {
+    image: string;
+    url: string;
+  }
   // Utiliza los datos cargados en la págin
+  const [publicidad, setPublicidad] = useState<DataType[]>([]);
 
-  console.log(data)
+  const fetchData = async () => {
+    try {
+      const response = await getPublicidad();
+      setPublicidad(response);
+    } catch (error) {
+      console.error("Error al cargar los datos", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
-   <Head>
+      <Head>
         <title>Hi! Sports</title>
         <meta name="description" content={"Hi Sports."} />
         <meta property="og:image" content={data.image} />
@@ -75,18 +94,20 @@ function MyPage({ data }: { data: MyData }) {
         <meta name="twitter:card" content={data.image} />
       </Head>
 
-      <div className='background-image' />
+      <div className="background-image" />
       <HeaderContainer />
       <div className="flex justify-between mt-20">
         <div className="w-1/6 mx-2 ">
           <div className="hidden md:block">
-            <Link href="https://www.caliente.mx/" target="_blank">
-              <img
-                src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
-                alt="Publicidad"
-                className="relative w-full "
-              />
-            </Link>
+            {publicidad[0]?.url && (
+              <Link href={publicidad[0].url} passHref={true} target="_blank">
+                <img
+                  src={publicidad[0]?.image}
+                  alt="Publicidad"
+                  className="relative w-full"
+                />
+              </Link>
+            )}
           </div>
           {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
@@ -105,14 +126,29 @@ function MyPage({ data }: { data: MyData }) {
               <span>{data.title}</span>
             </div>
             <div className="relative">
-              <img
-                src={data.image}
-                alt="Imagen de la columna"
-                className="w-full md:h-[50em] object-cover object-center rounded-md"
-              />
-              <div className="absolute top-0 left-0  flex justify-center items-center text-white md:text-xl text-sm px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md ">
-                {}
-              </div>
+              {typeof data.url === "undefined" ? (
+                <img
+                  src={data.image}
+                  alt="Imagen de la columna"
+                  className="w-full md:h-[50em] object-cover object-center rounded-md"
+                />
+              ) : (
+                <iframe
+                  className="w-full lg:h-[600px]"
+                  src={`https://www.youtube.com/embed/${
+                    data.url.split("=")[1]
+                  }`}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              )}
+              {typeof data.url === "undefined" ? (
+                <div className="absolute top-0 left-0  flex justify-center items-center text-white md:text-xl text-sm px-3 py-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-br-md ">
+                  {data.category.name}
+                </div>
+              ) : null}
             </div>
             <div className="pb-8 rounded-b-lg">
               <div className="md:ml-16 pt-2 text-left flex">
@@ -121,13 +157,43 @@ function MyPage({ data }: { data: MyData }) {
                 </div>
                 <div className="w-1/4">
                   <div className="md:flex justify-around hidden">
-                    <img className=" w-12" src="/social/facebook.png" alt="" />
-                    <img className=" w-12" src="/social/insta.png" alt="" />
-                    <img className=" w-12" src="/social/tiktok.png" alt="" />
-                    <img className=" w-12" src="/social/youtube.png" alt="" />
-
-
-
+                    <Link
+                      href="http://www.facebook.com/hisportst"
+                      target="_blank"
+                    >
+                      <img
+                        className=" w-12"
+                        src="/social/facebook.png"
+                        alt="facebook"
+                      />
+                    </Link>
+                    <Link
+                      href="http://www.instagram.com/hisportstv"
+                      target="_blank"
+                    >
+                      <img
+                        className=" w-12"
+                        src="/social/insta.png"
+                        alt="instagram"
+                      />
+                    </Link>
+                    <Link href="http://www.x.com/hisportstv" target="_blank">
+                      <img
+                        className=" w-12"
+                        src="/social/twiter.png"
+                        alt="twiter"
+                      />
+                    </Link>
+                    <Link
+                      href="http://www.youtube.com/@HiSportsTV1"
+                      target="_blank"
+                    >
+                      <img
+                        className=" w-12"
+                        src="/social/youtube.png"
+                        alt="youtube"
+                      />
+                    </Link>
                   </div>
                 </div>
 
@@ -144,9 +210,9 @@ function MyPage({ data }: { data: MyData }) {
               </div>
             </div>
           </div>
-          <div className="relative md:mt-32 mt-10 container">
+          {/* <div className="relative md:mt-32 mt-10 container">
             <span className="md:text-2xl bg-purple-600/80 px-8 py-2 w-2/6 rounded-t-xl">
-              Notas Relacionadas
+              Notas Recientes
             </span>
 
             <div className="mt-1 py-6 bg-stone-600/80 md:grid md:grid-cols-3  rounded-tr-[2em] rounded-b-[2em]">
@@ -167,30 +233,34 @@ function MyPage({ data }: { data: MyData }) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className="mt-10 container relative w-full">
             <div className="hidden md:block">
-              <Link href="https://www.caliente.mx/" target="_blank">
-                <img
-                  src="https://sissamx.com.mx/hi-sports/images/home/970x250.png"
-                  alt="publicidad"
-                  className="w-full h-full object-cover "
-                />
-              </Link>
+              {publicidad[2]?.url && (
+                <Link href={publicidad[2].url} passHref={true} target="_blank">
+                  <img
+                    src={publicidad[2]?.image}
+                    alt="Publicidad"
+                    className="relative w-full"
+                  />
+                </Link>
+              )}
             </div>
           </div>
         </div>
 
         <div className="w-1/6 mx-2">
           <div className="hidden md:block">
-            <Link href="https://www.caliente.mx/" target="_blank">
-              <img
-                src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
-                alt="Publicidad"
-                className="relative w-full "
-              />
-            </Link>
+            {publicidad[0]?.url && (
+              <Link href={publicidad[1].url} passHref={true} target="_blank">
+                <img
+                  src={publicidad[1]?.image}
+                  alt="Publicidad"
+                  className="relative w-full"
+                />
+              </Link>
+            )}
           </div>
           {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
@@ -212,9 +282,7 @@ function MyPage({ data }: { data: MyData }) {
         <br />
       </Col>
       <Footercontenido />
-
     </>
-
   );
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { Image } from "@nextui-org/react";
+import Link from "next/link";
 
 type Props = {};
 
@@ -14,40 +15,49 @@ const Footercontenido = (props: Props) => {
           <div className="w-full h-1 bg-white/80 mt-5"></div>
 
           <ul className="flex md:mx-auto mt-10 justify-center">
+           
+           
             <div className="lg:w-24 w-16 ">
-              <img
-                className="logoRedes "
-                src="/social/threads.png"
-                alt="Follow us on Facebook"
-              />
-            </div>
-            <div className="lg:w-24 w-16 ">
+              <Link href="http://www.facebook.com/hisportst" target="_blank">
               <img
                 className="logoRedes"
-                src="/social/tiktok.png"
-                alt="Follow us on Instagram"
-              />
-            </div>
-            <div className="lg:w-24 w-16 ">
-              <img
-                className="logoRedes"
-                src="/social/twich.png"
+                src="/social/facebook.png"
                 alt="Follow us on Twitter"
               />
+              
+              </Link>
+             
+            </div>
+
+            <div className="lg:w-24 w-16 ">
+              <Link href="http://www.instagram.com/hisportstv" target="_blank">
+              <img
+                className="logoRedes"
+                src="/social/insta.png"
+                alt="Follow us on Twitter"
+              />
+              </Link>
+             
             </div>
             <div className="lg:w-24 w-16 ">
+              <Link href="http://www.x.com/hisportstv" target="_blank">
               <img
                 className="logoRedes"
                 src="/social/twiter.png"
                 alt="Follow us on Twitter"
               />
+              </Link>
+            
             </div>
             <div className="lg:w-24 w-16 ">
+              <Link href="http://www.youtube.com/@HiSportsTV1" target="_blank">
               <img
                 className="logoRedes"
                 src="/social/youtube.png"
                 alt="Follow us on Twitter"
               />
+              </Link>
+            
             </div>
           </ul>
         </div>

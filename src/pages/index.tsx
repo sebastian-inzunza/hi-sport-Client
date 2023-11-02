@@ -5,6 +5,7 @@ import ContentContainer from '@/components/content/contentContainer';
 import ProgramacionContainer from '@/components/content/programacionContainer';
 import BreakingNewsContainer from '../components/content/breakingNewsContainer';
 import Footercontenido from "@/components/FooterContainer/footercontenido"
+import {PrivacyNotice} from "@/components/privacity/PrivacyNotice"
 
 export default function Home() {
   return (
@@ -93,6 +94,7 @@ export default function Home() {
         <br />
         <br />
       </Col>
+     <PrivacyNotice />
       <Footercontenido />
 
 
