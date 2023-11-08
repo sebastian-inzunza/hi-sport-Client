@@ -158,7 +158,7 @@ function MyPage({ data }: { data: any }) {
                 />
               ) : (
                 <iframe
-                  className="w-full lg:h-[600px]"
+                  className="w-[60em] lg:h-[600px]"
                   src={`https://www.youtube.com/embed/${
                     data.url.split("=")[1]
                   }`}
