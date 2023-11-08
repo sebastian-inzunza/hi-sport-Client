@@ -1,5 +1,9 @@
 import { GetServerSideProps } from "next";
-import { SearchSlug, SearchSlugVideo } from "../../services/BlogsService";
+import {
+  BlogReleated,
+  SearchSlug,
+  SearchSlugVideo,
+} from "../../services/BlogsService";
 import HeaderContainer from "@/components/header/headerContainer";
 import Head from "next/head";
 import Link from "next/link";
@@ -12,7 +16,7 @@ type MyData = {
   title: string;
   image: string;
   content: string;
-  category: { name: string };
+  category: { name: string; id: string };
 };
 
 const notasSimilares = [
@@ -65,8 +69,16 @@ function MyPage({ data }: { data: any }) {
     image: string;
     url: string;
   }
+  interface DataTypeNotesRelated {
+    image: string;
+    slug: string;
+    title: string;
+    content: string;
+    category: { name: string; id: string };
+  }
   // Utiliza los datos cargados en la págin
   const [publicidad, setPublicidad] = useState<DataType[]>([]);
+  const [blogRelated, setBlogRelated] = useState<DataTypeNotesRelated[]>([]);
 
   const fetchData = async () => {
     try {
@@ -77,8 +89,20 @@ function MyPage({ data }: { data: any }) {
     }
   };
 
+  const fetchDataRelated = async (id: string) => {
+    try {
+      const response = await BlogReleated(id);
+      setBlogRelated(response);
+    } catch (error) {
+      console.error("Error al cargar los datos", error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
+    if ("category" in data) {
+      fetchDataRelated(data.category.id);
+    }
   }, []);
 
   return (
@@ -210,30 +234,40 @@ function MyPage({ data }: { data: any }) {
               </div>
             </div>
           </div>
-          {/* <div className="relative md:mt-32 mt-10 container">
-            <span className="md:text-2xl bg-purple-600/80 px-8 py-2 w-2/6 rounded-t-xl">
-              Notas Recientes
-            </span>
 
-            <div className="mt-1 py-6 bg-stone-600/80 md:grid md:grid-cols-3  rounded-tr-[2em] rounded-b-[2em]">
-              {notasSimilares.map((item, index) => (
-                <div className="grid grid-cols-2 mx-3 items-center" key={index}>
-                  <div className="relative">
-                    <div className=" top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center">
-                      Otros Deportes
+
+
+          {blogRelated.length > 0 ? (
+            <div className="relative md:mt-32 mt-10 container">
+              <span className="md:text-2xl bg-purple-600/80 px-8 py-2 w-2/6 rounded-t-xl">
+                Notas Relacionadas
+              </span>
+
+              <div className={`mt-1 py-6 bg-stone-600/80  ${blogRelated.length === 3 ? 'lg:grid lg:grid-cols-3 ' : blogRelated.length === 2 ? 'lg:grid lg:grid-cols-2 ' : 'flex justify-center'}  rounded-tr-[2em] rounded-b-[2em]`}>
+                {blogRelated.map((item, index) => (
+                  <div
+                    className={`items-center lg:mt-0 mt-3 grid mx-3 grid-cols-2  ${blogRelated.length === 3 ? 'lg:grid lg:grid-cols-2  ' : blogRelated.length === 2 ? ' lg:flex lg:mx-3' : null} `}
+                    key={index}
+                  >
+                    <div className="relative ">
+                      <div className=" top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center">
+                        {item.category.name}
+                      </div>
+                      <Link href={`/blog/${item.slug}`}>
+                      <img
+                        src={item.image}
+                        alt="Imagen de la columna"
+                        className={`w-full h-[7em] ${blogRelated.length===1 ? 'lg:h-[20em]' :null}`}
+                      />
+                      </Link>
+                     
                     </div>
-
-                    <img
-                      src={item.lista.source}
-                      alt="Imagen de la columna"
-                      className="w-full h-auto"
-                    />
+                    <div className={`ml-2 mt-6 text-sm uppercase ${blogRelated.length===1 ? 'lg:text-4xl' :null}`}>{item.title}</div>
                   </div>
-                  <div className="ml-2 mt-6 ">{item.lista.titulo}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div> */}
+          ) : null}
 
           <div className="mt-10 container relative w-full">
             <div className="hidden md:block">
