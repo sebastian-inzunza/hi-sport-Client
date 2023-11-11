@@ -313,15 +313,7 @@ function MyPage({ data }: { data: any }) {
               </Link>
             )}
           </div>
-          {/* <div className='mt-[800px]'>
-                        <Link href='https://www.caliente.mx/' target='_blank'>
-                           <img
-                                src="https://sissamx.com.mx/hi-sports/images/home/160x600.png"
-                                alt="Imagen de Publicidad Derecha"
-                                className="relative w-full redondo"
-                            />
-                        </Link>
-                    </div> */}
+       
         </div>
       </div>
       <Col xs={0} md={24}>
