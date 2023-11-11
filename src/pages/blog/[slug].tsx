@@ -19,33 +19,6 @@ type MyData = {
   category: { name: string; id: string };
 };
 
-const notasSimilares = [
-  {
-    lista: {
-      id: 1,
-      source:
-        "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
-      titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
-    },
-  },
-  {
-    lista: {
-      id: 2,
-      source:
-        "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
-      titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
-    },
-  },
-  {
-    lista: {
-      id: 3,
-      source:
-        "https://imgs.search.brave.com/OdtKwUhl1JijajWe_Ygn8kq8-gkKIAiyaWKzEuciB38/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9mb2NhbC03NTh4/Mzc5LGZfYXV0byxx/X2F1dG86YmVzdC9y/b2NrY21zLzIwMjMt/MDkvU2F1bC1DYW5l/bG8tQWx2YXJlei1h/MDU0MzYuanBn",
-      titulo: "Brave nunca recuerda lo que hace en una ventana de incógnito. ",
-    },
-  },
-];
-
 export const getServerSideProps: GetServerSideProps<{ data: any }> = async (
   context
 ) => {
