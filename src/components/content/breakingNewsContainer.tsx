@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getBlogs, getVideoBlogs } from "../../services/BlogsService";
 import { getPresentadores } from "../../services/PresentadoresService";
+import { getSbTypeId } from "../../services/CalienteOddService";
 import React from "react";
 
 import { PlayCircleOutlined } from "@ant-design/icons";
@@ -29,7 +30,6 @@ interface DataTypeCast {
   name: string;
   url: string;
 }
-
 
 const listCarouselDesk = [
   {
@@ -94,8 +94,6 @@ const listCarouselDesk = [
           },
         ],
       },
-
-     
     ],
   },
 
@@ -163,7 +161,6 @@ const listCarouselDesk = [
           },
         ],
       },
-    
     ],
   },
   {
@@ -311,6 +308,7 @@ export default function BreakingNewsContainer() {
   const [listaBlog, setListaBlog] = useState<DataType[]>([]);
   const [listaBlog2, setListaBlog2] = useState<DataTypeBlog[]>([]);
   const [listaPresentadores, setPresentadores] = useState<DataTypeCast[]>([]);
+  const [prueba, setPrueba] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -339,10 +337,20 @@ export default function BreakingNewsContainer() {
     }
   };
 
+  const fetchDataXML = async () => {
+    try {
+      const response = await getSbTypeId();
+      console.log(response);
+    } catch (error) {
+      console.error("Error al cargar los datos", error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
     fetchDataCast();
     fetchDataPrueba();
+    fetchDataXML();
   }, []);
 
   useEffect(() => {
@@ -359,7 +367,6 @@ export default function BreakingNewsContainer() {
     if (showIntersectionObserver) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-        
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
           }
@@ -861,7 +868,11 @@ export default function BreakingNewsContainer() {
                               style={{ color: "#ffee92" }}
                               className="text-base text-white text-justify line-clamp-3"
                             >
-                              {item.content}
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: item?.content as string,
+                                }}
+                              />
                             </span>
                           </div>
                         </div>

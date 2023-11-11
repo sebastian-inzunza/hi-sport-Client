@@ -145,7 +145,7 @@ function MyPage({ data }: { data: any }) {
         </div>
 
         <div>
-          <div className="relative bg-stone-600/80 px-8 redondo container mx-auto">
+          <div className="relative bg-stone-800/80 px-8 redondo container mx-auto">
             <div className="text-left md:text-4xl text-2xl py-4 font-bold mx-2 mb-4 leading-[1.5]">
               <span>{data.title}</span>
             </div>
@@ -176,8 +176,14 @@ function MyPage({ data }: { data: any }) {
             </div>
             <div className="pb-8 rounded-b-lg">
               <div className="md:ml-16 pt-2 text-left flex">
-                <div className="text-xl md:mr-33 md:w-3/4">
-                  <p className="my-4">{data.content}</p>
+                <div className="md:mr-33 md:w-3/4">
+                  <p className="my-4">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: data?.content as string,
+                      }}
+                    />
+                  </p>
                 </div>
                 <div className="w-1/4">
                   <div className="md:flex justify-around hidden">
@@ -235,35 +241,46 @@ function MyPage({ data }: { data: any }) {
             </div>
           </div>
 
-
-
           {blogRelated.length > 0 ? (
             <div className="relative md:mt-32 mt-10 container">
               <span className="md:text-2xl bg-purple-600/80 px-8 py-2 w-2/6 rounded-t-xl">
                 Notas Relacionadas
               </span>
 
-              <div className={`mt-1 py-6 bg-stone-600/80  ${blogRelated.length === 3 ? 'lg:grid lg:grid-cols-3 ' : blogRelated.length === 2 ? 'lg:grid lg:grid-cols-2 ' : 'flex justify-center'}  rounded-tr-[2em] rounded-b-[2em]`}>
+              <div
+                className={`mt-1 py-6 bg-stone-600/80 rounded-tr-[2em] grid lg:grid-cols-3 grid-cols-1 rounded-b-[2em]`}
+              >
                 {blogRelated.map((item, index) => (
-                  <div
-                    className={`items-center lg:mt-0 mt-3 grid mx-3 grid-cols-2  ${blogRelated.length === 3 ? 'lg:grid lg:grid-cols-2  ' : blogRelated.length === 2 ? ' lg:flex lg:mx-3' : null} `}
-                    key={index}
-                  >
-                    <div className="relative ">
-                      <div className=" top-0 left-0 bg-gradient-to-r from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center">
-                        {item.category.name}
+                  <>
+                    {index < 3 ? (
+                      <div
+                        className={`items-center lg:mt-0 mt-3 grid mx-3 grid-cols-2 `}
+                        key={index}
+                      >
+                        <div className="relative ">
+                          <div className=" top-0 left-0 bg-gradient-to-r text-center from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center">
+                            {item.category.name}
+                          </div>
+                          <Link href={`/blog/${item.slug}`}>
+                            <img
+                              src={item.image}
+                              alt="Imagen de la columna"
+                              className={`w-full h-[7em] ${
+                                blogRelated.length === 1 ? "lg:h-[20em]" : null
+                              }`}
+                            />
+                          </Link>
+                        </div>
+                        <div
+                          className={`ml-2 mt-6 text-sm uppercase ${
+                            blogRelated.length === 1 ? "lg:text-4xl" : null
+                          }`}
+                        >
+                          {item.title}
+                        </div>
                       </div>
-                      <Link href={`/blog/${item.slug}`}>
-                      <img
-                        src={item.image}
-                        alt="Imagen de la columna"
-                        className={`w-full h-[7em] ${blogRelated.length===1 ? 'lg:h-[20em]' :null}`}
-                      />
-                      </Link>
-                     
-                    </div>
-                    <div className={`ml-2 mt-6 text-sm uppercase ${blogRelated.length===1 ? 'lg:text-4xl' :null}`}>{item.title}</div>
-                  </div>
+                    ) : null}
+                  </>
                 ))}
               </div>
             </div>
