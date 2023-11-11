@@ -227,16 +227,6 @@ function MyPage({ data }: { data: any }) {
                   </div>
                 </div>
 
-                {/* <div className='mt-10'>
-                                    <img src='https://www.record.com.mx/sites/default/files/styles/v2-crop768x433/public/articulos/2023/09/07/20190623_7651.jpg?itok=4jekrXIS&changed=20230907130157' alt='Imagen de la columna' className='w-full h-full object-cover object-center rounded-md mb-3' />
-
-                                    <div className='text-xl md:mr-33 md:w-3/4'>
-                                        <p className='mb-10'>Christian Giménez reveló que la Selección Argentina Sub-23 buscó a su hijo Santiago, para portar la camiseta Albiceleste, sin embargo, la estrella de Feyenoord, decidió defender los colores del Tri.</p>
-                                        <p className='mb-10'>“Hace tres años lo llamaron de la Selección Argentina para ir a la Sub 23 y él decidió México. Por una cuestión que vivió siempre aquí y él lo sintió así. Él tuvo la decisión y se decidió por México”, señaló Chaco Giménez para La Capitana.</p>
-
-                                        <p>El canterano de Cruz Azul tomó la decisión de unirse al equipo mexicano debido a una profunda conexión con el país donde había vivió la mayor parte de su infancia, comentó que él siempre se sintió mexicano a pesar de haber nacido en Argentina.</p>
-                                    </div>
-                                </div> */}
               </div>
             </div>
           </div>
