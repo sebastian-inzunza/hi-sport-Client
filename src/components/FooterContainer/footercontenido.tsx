@@ -22,7 +22,7 @@ const Footercontenido = (props: Props) => {
               <img
                 className="logoRedes"
                 src="/social/facebook.png"
-                alt="Follow us on Twitter"
+                alt="Follow us on Facebook"
               />
               
               </Link>
@@ -34,7 +34,7 @@ const Footercontenido = (props: Props) => {
               <img
                 className="logoRedes"
                 src="/social/insta.png"
-                alt="Follow us on Twitter"
+                alt="Follow us on Instagram"
               />
               </Link>
              
@@ -54,7 +54,17 @@ const Footercontenido = (props: Props) => {
               <img
                 className="logoRedes"
                 src="/social/youtube.png"
-                alt="Follow us on Twitter"
+                alt="Follow us on Youtube"
+              />
+              </Link>
+            
+            </div>
+            <div className="lg:w-24 w-16 ">
+              <Link href="https://www.twitch.tv/hisportstv1" target="_blank">
+              <img
+                className="logoRedes"
+                src="/social/twich.png"
+                alt="Follow us on twich"
               />
               </Link>
             
