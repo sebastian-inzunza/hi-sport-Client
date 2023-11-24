@@ -556,8 +556,8 @@ export default function BreakingNewsContainer() {
           >
             <div className="flex flex-col sm:flex-row">
               {/* Columna izquierda */}
-
-              <div className="w-full sm:w-1/2 lg:p-0 p-1">
+              {listaBlog2.length ===0 ? null: (
+                <div className="w-full sm:w-1/2 lg:p-0 p-1">
                 <div className="relative">
                   <Link
                     href={`/blog/${listaBlog2[0]?.slug}?type=video`}
@@ -584,6 +584,9 @@ export default function BreakingNewsContainer() {
                   </div>
                 </div>
               </div>
+                
+              )}
+              
 
               {/* Columna derecha */}
               <div className="w-full sm:w-1/2 ">
@@ -752,7 +755,7 @@ export default function BreakingNewsContainer() {
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={22}>
                   <Row justify="space-around" gutter={[8, 8]}>
-                    {listaPresentadores.map((item, i) => (
+                    {listaPresentadores?.map((item, i) => (
                       <Col span={3} key={i}>
                         <Link href={item.url} target="_blank">
                           <Card
@@ -787,7 +790,7 @@ export default function BreakingNewsContainer() {
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={22}>
                   <Row justify="space-around" gutter={[8, 8]}>
-                    {listaPresentadores.map((item, i) => (
+                    {listaPresentadores?.map((item, i) => (
                       <Col span={12} key={i}>
                         <Link href={item.url} target="_blank">
                           <Card

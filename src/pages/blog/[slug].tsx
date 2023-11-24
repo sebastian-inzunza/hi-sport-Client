@@ -229,7 +229,7 @@ function MyPage({ data }: { data: any }) {
                               src={item.image}
                               alt="Imagen de la columna"
                               className={`w-full h-[7em] ${
-                                blogRelated.length === 1 ? "lg:h-[20em]" : null
+                                blogRelated.length === 1 ? "lg:h-[10em]" : null
                               }`}
                             />
                           </Link>
