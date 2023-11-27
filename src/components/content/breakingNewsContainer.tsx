@@ -336,6 +336,7 @@ export default function BreakingNewsContainer() {
       console.error("Error al cargar los datos", error);
     }
   };
+  console.log("SDSDS",listaPresentadores)
 
   const fetchDataXML = async () => {
     try {
@@ -755,7 +756,7 @@ export default function BreakingNewsContainer() {
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={22}>
                   <Row justify="space-around" gutter={[8, 8]}>
-                    {listaPresentadores?.map((item, i) => (
+                    {listaPresentadores.map((item, i) => (
                       <Col span={3} key={i}>
                         <Link href={item.url} target="_blank">
                           <Card
@@ -790,7 +791,7 @@ export default function BreakingNewsContainer() {
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={22}>
                   <Row justify="space-around" gutter={[8, 8]}>
-                    {listaPresentadores?.map((item, i) => (
+                    {listaPresentadores.map((item, i) => (
                       <Col span={12} key={i}>
                         <Link href={item.url} target="_blank">
                           <Card

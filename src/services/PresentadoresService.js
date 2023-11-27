@@ -8,7 +8,7 @@ export const getPresentadores = async () => {
 
       if (response.status === 200) {
         // return response.data.users; // Devolver los datos de la respuesta
-        return response.data.data
+        return response.data.cast
       } else {
         return []
         throw new Error(`La solicitud no fue exitosa. Código de estado: ${response.status}`);
