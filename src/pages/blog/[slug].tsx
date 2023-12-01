@@ -85,8 +85,8 @@ function MyPage({ data }: { data: any }) {
         <meta name="description" content={"Hi Sports."} />
         <meta property="og:image" content={data.image} />
 
-        <meta name="twitter:title" content="Hi! Sports" />
-        <meta name="twitter:description" content={"Hi Sports"} />
+        <meta name="twitter:title" content={data.title}/>
+        <meta name="twitter:description" content={data.description} />
         <meta name="twitter:image" content={data.image} />
         <meta name="twitter:card" content={data.image} />
       </Head>
