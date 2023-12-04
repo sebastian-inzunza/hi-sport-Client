@@ -114,7 +114,7 @@ export const BlogReleated = async (id) => {
       );
     }
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     throw error; // Propagar el error para que pueda ser manejado en el nivel superior
   }
 };
