@@ -389,7 +389,7 @@ export default function BreakingNewsContainer() {
 
   return (
     <>
-      <Row justify="center" id="última hora">
+      {/* <Row justify="center" id="última hora">
         <Col xs={0} md={24}></Col>
         <Col span={22}>
           <Divider
@@ -546,11 +546,19 @@ export default function BreakingNewsContainer() {
             </Col>
           </Card>
         </Col>
-      </Row>
+      </Row> */}
 
       <br />
-      <Row justify="center" id="última hora">
+      <Row justify="center">
+      
         <Col span={22}>
+
+        <Divider
+            orientation="left"
+            style={{ color: "white", fontSize: "2.3em" }}
+          >
+            Videoblogs
+          </Divider>
           <Card
             isBlurred
             className="itemNavBar border-none bg-purple-600/40 cardEffect"

@@ -236,7 +236,7 @@ function MyPage({ data }: { data: any }) {
                         </div>
                         <div
                           className={`ml-2 mt-6 text-sm uppercase ${
-                            blogRelated.length === 1 ? "lg:text-4xl" : null
+                            blogRelated.length === 1 ? "lg:text-xl" : null
                           }`}
                         >
                           {item.title}
