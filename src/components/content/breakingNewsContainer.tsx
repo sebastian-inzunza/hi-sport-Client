@@ -585,7 +585,7 @@ export default function BreakingNewsContainer() {
                   <div className="absolute bottom-0 w-full bg-purple-600 bg-opacity-50 py-5">
                     <div className="flex justify-start mx-2">
                       <div className="flex flex-col">
-                        <span className="text-4xl font-bold text-white">
+                        <span className="lg:text-4xl text-lg font-bold text-white">
                           {listaBlog2[0]?.title}
                         </span>
                       </div>
@@ -622,7 +622,7 @@ export default function BreakingNewsContainer() {
                         <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-50 py-5">
                           <div className="flex justify-start mx-2">
                             <div className="flex flex-col">
-                              <span className="lg:text-2xl text-xl font-bold text-white">
+                              <span className="lg:text-2xl text-lg font-bold text-white">
                                 {elemento.title}
                               </span>
                             </div>

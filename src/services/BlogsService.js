@@ -4,7 +4,7 @@ import axios from "axios";
 export const getBlogs = async () => {
   try {
     const response = await axios.get(
-      `https://back-hisport-4b9e6db2f253.herokuapp.com/notes`
+      `https://hi-sports-v1-5056641427c0.herokuapp.com/notes`
     );
 
     if (response.status === 200) {
@@ -30,7 +30,7 @@ export const getBlogs = async () => {
 export const SearchSlug = async (slug) => {
   try {
     const response = await axios.get(
-      `https://back-hisport-4b9e6db2f253.herokuapp.com/notes/${slug}`
+      `https://hi-sports-v1-5056641427c0.herokuapp.com/notes/${slug}`
     );
 
     if (response.status === 200) {
@@ -50,7 +50,7 @@ export const SearchSlug = async (slug) => {
 export const getVideoBlogs = async () => {
   try {
     const response = await axios.get(
-      `https://back-hisport-4b9e6db2f253.herokuapp.com/videoBlogs`
+      `https://hi-sports-v1-5056641427c0.herokuapp.com/videoBlogs`
     );
 
     if (response.status === 200) {
@@ -76,7 +76,7 @@ export const getVideoBlogs = async () => {
 export const SearchSlugVideo = async (slug) => {
   try {
     const response = await axios.get(
-      `https://back-hisport-4b9e6db2f253.herokuapp.com/videoblogs/${slug}`
+      `https://hi-sports-v1-5056641427c0.herokuapp.com/videoblogs/${slug}`
     );
 
     if (response.status === 200) {
@@ -96,7 +96,7 @@ export const SearchSlugVideo = async (slug) => {
 export const BlogReleated = async (id) => {
   try {
     const response = await axios.get(
-      `https://back-hisport-4b9e6db2f253.herokuapp.com/notes/releated/${id}`
+      `https://hi-sports-v1-5056641427c0.herokuapp.com/notes/releated/${id}`
     );
 
     if (response.status === 200) {

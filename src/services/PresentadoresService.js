@@ -3,7 +3,7 @@ import axios from "axios";
 export const getPresentadores = async () => {
   
     try {
-      const response = await axios.get(`https://back-hisport-4b9e6db2f253.herokuapp.com/Cast`)
+      const response = await axios.get(`https://hi-sports-v1-5056641427c0.herokuapp.com/Cast`)
       
 
       if (response.status === 200) {
