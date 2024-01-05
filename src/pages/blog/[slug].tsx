@@ -85,7 +85,7 @@ function MyPage({ data }: { data: any }) {
         <meta name="description" content={"Hi Sports."} />
         <meta property="og:image" content={data.image} />
 
-        <meta name="twitter:title" content={data.title}/>
+        <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.description} />
         <meta name="twitter:image" content={data.image} />
         <meta name="twitter:card" content={data.image} />
@@ -119,7 +119,7 @@ function MyPage({ data }: { data: any }) {
 
         <div>
           <div className="relative bg-stone-800/80 px-8 redondo container mx-auto">
-            <div className="text-left md:text-4xl text-2xl py-4 font-bold mx-2 mb-4 leading-[1.5]">
+            <div className="text-left md:text-4xl text-base py-4 font-bold mx-2 mb-4 leading-[1.5]">
               <span>{data.title}</span>
             </div>
             <div className="relative">
@@ -127,11 +127,11 @@ function MyPage({ data }: { data: any }) {
                 <img
                   src={data.image}
                   alt="Imagen de la columna"
-                  className="w-full md:h-[50em] object-cover object-center rounded-md"
+                  className="lg:w-full  w-[120em] lg:h-[50em] object-cover object-center rounded-md"
                 />
               ) : (
                 <iframe
-                  className="w-[60em] lg:h-[600px]"
+                  className="lg:w-[60em] lg:h-[540px] h-[170px] w-[19em]"
                   src={`https://www.youtube.com/embed/${
                     data.url.split("=")[1]
                   }`}
@@ -199,7 +199,6 @@ function MyPage({ data }: { data: any }) {
                     </Link>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -215,34 +214,31 @@ function MyPage({ data }: { data: any }) {
               >
                 {blogRelated.map((item, index) => (
                   <>
-                    {index < 3 ? (
-                      <div
-                        className={`items-center lg:mt-0 mt-3 grid mx-3 grid-cols-2 `}
-                        key={index}
-                      >
-                        <div className="relative ">
-                          <div className=" top-0 left-0 bg-gradient-to-r text-center from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center">
-                            {item.category.name}
-                          </div>
-                          <Link href={`/blog/${item.slug}`}>
-                            <img
-                              src={item.image}
-                              alt="Imagen de la columna"
-                              className={`w-full h-[7em] ${
-                                blogRelated.length === 1 ? "lg:h-[5em]" : null
-                              }`}
-                            />
-                          </Link>
+                    <div
+                      className={`items-center lg:mt-0 mt-3 grid mx-3 grid-cols-2 `}
+                      key={index}
+                    >
+                      <div className="relative ">
+                        <div className=" top-0 left-0 bg-gradient-to-r text-center from-blue-500 to-green-500 text-white px-2 py-1 md:text-sm md:w-3/4 md:font-bold rounded-t-xl md:text-md md:text-center">
+                          {item.category.name}
                         </div>
-                        <div
-                          className={`ml-2 mt-6 text-sm uppercase ${
-                            blogRelated.length === 1 ? "lg:text-xl" : null
-                          }`}
-                        >
-                          {item.title}
-                        </div>
+                        <Link href={`/blog/${item.slug}`}>
+                          <img
+                            src={item.image}
+                            alt="Imagen de la columna"
+                            className="w-full h-[7em] lg:h-full]
+                        "
+                          />
+                        </Link>
                       </div>
-                    ) : null}
+                      <div
+                        className={`ml-2 mt-6 text-sm uppercase ${
+                          blogRelated.length === 1 ? "lg:text-xl" : null
+                        }`}
+                      >
+                        {item.title}
+                      </div>
+                    </div>
                   </>
                 ))}
               </div>
@@ -276,7 +272,6 @@ function MyPage({ data }: { data: any }) {
               </Link>
             )}
           </div>
-       
         </div>
       </div>
       <Col xs={0} md={24}>

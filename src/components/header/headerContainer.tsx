@@ -54,7 +54,6 @@ export default function HeaderContainer() {
     "Talento",
   ];
   const verMenu = (value: boolean) => {
-  
     setIsMenuOpen(value);
   };
 
@@ -244,6 +243,17 @@ export default function HeaderContainer() {
           onClose={onClose}
           open={open}
         >
+          <Link
+            className="flex flex-col space-y-4 lg:hidden"
+            href="/"
+          >
+            <button
+              style={{ color: "#ffee92" }}
+              className={`flex justify-center text-xl  mb-3 w-full py-3 rounded-md hover:bg-burger border-2 border-borderMorado`}
+            >
+              Inicio
+            </button>
+          </Link>
           {menu.map((item, index) => (
             <Link
               key={index}
