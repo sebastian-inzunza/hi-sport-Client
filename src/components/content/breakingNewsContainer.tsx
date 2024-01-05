@@ -336,7 +336,6 @@ export default function BreakingNewsContainer() {
       console.error("Error al cargar los datos", error);
     }
   };
-  console.log("SDSDS",listaPresentadores)
 
   const fetchDataXML = async () => {
     try {
@@ -578,14 +577,14 @@ export default function BreakingNewsContainer() {
                       alt="banner1"
                     />
 
-                    <div className="absolute lg:top-1/3 lg:left-[18em] top-24 left-40">
-                      <PlayCircleOutlined className="lg:text-8xl text-5xl" />
+                    <div className="absolute lg:top-1/3 lg:left-[18em] top-20 left-[10em]">
+                      <PlayCircleOutlined className="lg:text-8xl text-5xl hover:text-gray-300" />
                     </div>
                   </Link>
                   <div className="absolute bottom-0 w-full bg-purple-600 bg-opacity-50 py-5">
                     <div className="flex justify-start mx-2">
                       <div className="flex flex-col">
-                        <span className="lg:text-4xl text-lg font-bold text-white">
+                        <span className="lg:text-xl text-lg font-bold text-white">
                           {listaBlog2[0]?.title}
                         </span>
                       </div>
@@ -612,17 +611,16 @@ export default function BreakingNewsContainer() {
                             alt=""
                             className="lg:h-60 h-full"
                           />
-                          <div className="absolute top-20 lg:left-1/2 left-40">
+                          <div className="absolute lg:top-[5em] lg:left-[9em] top-20 left-[10em] ">
                             <PlayCircleOutlined
-                              style={{ color: "white " }}
-                              className="text-5xl "
+                              className="text-5xl hover:text-gray-300"
                             />
                           </div>
                         </Link>
                         <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-50 py-5">
                           <div className="flex justify-start mx-2">
                             <div className="flex flex-col">
-                              <span className="lg:text-2xl text-lg font-bold text-white">
+                              <span className="lg:text-lg text-lg font-bold text-white">
                                 {elemento.title}
                               </span>
                             </div>
@@ -645,10 +643,9 @@ export default function BreakingNewsContainer() {
                             className="lg:h-60 h-full"
                             alt=""
                           />
-                          <div className="absolute lg:top-20 top-10 lg:left-1/2 left-20">
+                          <div className="absolute lg:top-[5em] lg:left-[9em] top-20 left-[10em]">
                             <PlayCircleOutlined
-                              style={{ color: "white" }}
-                              className="lg:text-5xl  text-2xl"
+                              className="lg:text-5xl  text-2xl hover:text-gray-300"
                             />
                           </div>
                         </Link>
@@ -762,7 +759,7 @@ export default function BreakingNewsContainer() {
               </CardHeader>
               <br />
               <Row justify="space-around" className="relative flex-[0_0_100%]">
-                <Col span={22}>
+                <Col span={23}>
                   <Row justify="space-around" gutter={[8, 8]}>
                     {listaPresentadores.map((item, i) => (
                       <Col span={3} key={i}>
@@ -770,13 +767,14 @@ export default function BreakingNewsContainer() {
                           <Card
                             isFooterBlurred
                             radius="lg"
-                            className="border-none zoom"
+                            className="border-none zoom "
                             style={{ backgroundColor: "transparent" }}
                           >
                             <Image
+                            style={{objectFit: "cover"}}
                               src={item.image}
-                              className="columnist"
                               alt="Columnist"
+                              className="lg:h-[12em] lg:w-[10em]"
                             />
 
                             <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
@@ -805,11 +803,11 @@ export default function BreakingNewsContainer() {
                           <Card
                             isFooterBlurred
                             radius="lg"
-                            className="border-none zoom bg-purple-600/40"
+                            className="border-none zoom bg-purple-600/40 m-2"
                           >
                             <Image
                               src={item.image}
-                              className="columnist"
+                              className="h-[13em] w-[10em] "
                               alt="Columnist"
                             />
 

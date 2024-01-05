@@ -89,7 +89,7 @@ export default function HeaderContainer() {
         className=" fondoNav items-center"
         onMenuOpenChange={setIsMenuOpen}
       >
-        <div className="flex items-center lg:hidden ">
+        {/* <div className="flex items-center lg:hidden ">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="sm:hidden"
@@ -105,9 +105,9 @@ export default function HeaderContainer() {
               #Todo es posible
             </span>
           </div>
-        </div>
+        </div> */}
 
-        <div className="md:flex items-center hidden">
+        <div className="items-center flex">
           <Button
             className="mi-boton"
             style={{
@@ -124,9 +124,9 @@ export default function HeaderContainer() {
               />
             }
           />
-          <div className=" md:flex items-center hidden">
+          <div className=" flex items-center">
             <img
-              className="w-20"
+              className="lg:w-20 w-16"
               src="https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png"
               alt="logo"
             />

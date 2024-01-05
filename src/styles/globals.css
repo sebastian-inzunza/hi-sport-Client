@@ -200,15 +200,15 @@ body {
 .fullWidth{
   width: 100%;
 }
-.columnist{
+/* .columnist{
   height: 12em;
-}
+} */
 
 .zoom {
   transition: transform .2s; /* Animation */
 }
 .zoom:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.09 ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 /* VISTA DESDE CELULAR */
