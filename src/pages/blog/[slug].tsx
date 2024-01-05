@@ -212,7 +212,7 @@ function MyPage({ data }: { data: any }) {
               <div
                 className={`mt-1 py-6 bg-stone-600/80 rounded-tr-[2em] grid lg:grid-cols-3 grid-cols-1 rounded-b-[2em]`}
               >
-                {blogRelated.map((item, index) => (
+                {blogRelated.slice(0, 3).map((item, index) => (
                   <>
                     <div
                       className={`items-center lg:mt-0 mt-3 grid mx-3 grid-cols-2 `}
