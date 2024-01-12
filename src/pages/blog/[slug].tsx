@@ -79,7 +79,7 @@ function MyPage({ data }: { data: any }) {
   }, []);
 
   return (
-    <>
+    <main>
       <Head>
         <title>Hi! Sports</title>
         <meta name="description" content={"Hi Sports."} />
@@ -283,7 +283,7 @@ function MyPage({ data }: { data: any }) {
         <br />
       </Col>
       <Footercontenido />
-    </>
+    </main>
   );
 }
 
