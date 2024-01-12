@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { Row, Col, Divider, Button } from "antd";
+import { Row, Col, Divider, Button, Spin } from "antd";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import Carousel from "../carousel";
 import Link from "next/link";
@@ -9,19 +9,19 @@ import { getBlogs, getVideoBlogs } from "../../services/BlogsService";
 import { getPresentadores } from "../../services/PresentadoresService";
 import { getSbTypeId } from "../../services/CalienteOddService";
 import React from "react";
-import { format } from 'date-fns';
-import esLocale from 'date-fns/locale/es';
-
+import { format } from "date-fns";
+import esLocale from "date-fns/locale/es";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import { PlayCircleOutlined } from "@ant-design/icons";
 interface DataType {
   image: string;
-  autor: string
+  autor: string;
   title: string;
   slug: string;
   content: string;
   category: { name: string };
-  createdAt: string
+  createdAt: string;
 }
 
 interface DataTypeBlog {
@@ -311,6 +311,8 @@ const listCarouselMobile = [
 export default function BreakingNewsContainer() {
   const [showIntersectionObserver, setShowIntersectionObserver] =
     useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loadingCast, setLoadingCast] = useState(true);
 
   const [listaBlog, setListaBlog] = useState<DataType[]>([]);
   const [listaBlog2, setListaBlog2] = useState<DataTypeBlog[]>([]);
@@ -326,12 +328,17 @@ export default function BreakingNewsContainer() {
     }
   };
 
+  const loaderIcon = (
+    <LoadingOutlined style={{ fontSize: "200px", color: "#8e44ad" }} />
+  );
   const fetchDataPrueba = async () => {
     try {
       const response = await getVideoBlogs();
       setListaBlog2(response);
+      setLoading(false); // Después de cargar los datos, establece loading en false
     } catch (error) {
       console.error("Error al cargar los datos", error);
+      setLoading(false); // Después de cargar los datos, establece loading en false
     }
   };
 
@@ -339,8 +346,10 @@ export default function BreakingNewsContainer() {
     try {
       const response = await getPresentadores();
       setPresentadores(response);
+      setLoadingCast(false); // Después de cargar los datos, establece loading en false
     } catch (error) {
       console.error("Error al cargar los datos", error);
+      setLoadingCast(false); // Después de cargar los datos, establece loading en false
     }
   };
 
@@ -352,7 +361,6 @@ export default function BreakingNewsContainer() {
       console.error("Error al cargar los datos", error);
     }
   };
-
 
   useEffect(() => {
     fetchData();
@@ -389,7 +397,6 @@ export default function BreakingNewsContainer() {
   }, [showIntersectionObserver]);
 
   const [expanded, setExpanded] = useState(false);
-
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -558,10 +565,8 @@ export default function BreakingNewsContainer() {
 
       <br />
       <Row justify="center">
-      
         <Col span={22}>
-
-        <Divider
+          <Divider
             orientation="left"
             style={{ color: "white", fontSize: "2.3em" }}
           >
@@ -571,108 +576,108 @@ export default function BreakingNewsContainer() {
             isBlurred
             className="itemNavBar border-none bg-purple-600/40 cardEffect"
           >
-            <div className="flex flex-col sm:flex-row">
-              {/* Columna izquierda */}
-              {listaBlog2.length ===0 ? null: (
-                <div className="w-full sm:w-1/2 lg:p-0 p-1">
-                <div className="relative">
-                  <Link
-                    href={`/blog/${listaBlog2[0]?.slug}?type=video`}
-                    style={{ color: "white" }}
-                  >
-                    <img
-                      src={listaBlog2[0]?.image}
-                      className="lg:h-[30.8em] w-full"
-                      alt="banner1"
-                    />
+            {loading ? (
+              <div className="flex justify-center py-[200px]">
+                <Spin spinning={loading} indicator={loaderIcon} size="large" />
+              </div>
+            ) : (
+              <div className="flex flex-col sm:flex-row">
+                {/* Columna izquierda */}
+                {listaBlog2.length === 0 ? null : (
+                  <div className="w-full sm:w-1/2 lg:p-0 p-1">
+                    <div className="relative">
+                      <Link
+                        href={`/blog/${listaBlog2[0]?.slug}?type=video`}
+                        style={{ color: "white" }}
+                      >
+                        <img
+                          src={listaBlog2[0]?.image}
+                          className="lg:h-[30.8em] w-full"
+                          alt="banner1"
+                        />
 
-                    <div className="absolute lg:top-1/3 lg:left-[18em] top-20 left-[10em]">
-                      <PlayCircleOutlined className="lg:text-8xl text-5xl hover:text-gray-300" />
-                    </div>
-                  </Link>
-                  <div className="absolute bottom-0 w-full bg-purple-600 bg-opacity-50 py-5">
-                    <div className="flex justify-start mx-2">
-                      <div className="flex flex-col">
-                        <span className="lg:text-xl text-lg font-bold text-white">
-                          {listaBlog2[0]?.title}
-                        </span>
+                        <div className="absolute lg:top-1/3 lg:left-[18em] top-20 left-[10em]">
+                          <PlayCircleOutlined className="lg:text-8xl text-5xl hover:text-gray-300" />
+                        </div>
+                      </Link>
+                      <div className="absolute bottom-0 w-full bg-purple-600 bg-opacity-50 py-5">
+                        <div className="flex justify-start mx-2">
+                          <div className="flex flex-col">
+                            <span className="lg:text-xl text-lg font-bold text-white">
+                              {listaBlog2[0]?.title}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-                
-              )}
-              
+                )}
 
-              {/* Columna derecha */}
-              <div className="w-full sm:w-1/2 ">
-                <div className="flex flex-wrap">
-                  {listaBlog2.slice(1, 3).map((elemento, index) => (
-                    <div key={index} className="w-full sm:w-1/2 p-1">
-                      <div className="relative">
-                        <Link
-                          href={`/blog/${elemento.slug}?type=video`}
-                          style={{ color: "white" }}
-                        >
-                          <img
-                            src={elemento.image}
-                            alt=""
-                            className="lg:h-60 h-full"
-                          />
-                          <div className="absolute lg:top-[5em] lg:left-[9em] top-20 left-[10em] ">
-                            <PlayCircleOutlined
-                              className="text-5xl hover:text-gray-300"
+                {/* Columna derecha */}
+                <div className="w-full sm:w-1/2 ">
+                  <div className="flex flex-wrap">
+                    {listaBlog2.slice(1, 3).map((elemento, index) => (
+                      <div key={index} className="w-full sm:w-1/2 p-1">
+                        <div className="relative">
+                          <Link
+                            href={`/blog/${elemento.slug}?type=video`}
+                            style={{ color: "white" }}
+                          >
+                            <img
+                              src={elemento.image}
+                              alt=""
+                              className="lg:h-60 h-full"
                             />
-                          </div>
-                        </Link>
-                        <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-50 py-5">
-                          <div className="flex justify-start mx-2">
-                            <div className="flex flex-col">
-                              <span className="lg:text-lg text-lg font-bold text-white">
-                                {elemento.title}
-                              </span>
+                            <div className="absolute lg:top-[5em] lg:left-[9em] top-20 left-[10em] ">
+                              <PlayCircleOutlined className="text-5xl hover:text-gray-300" />
+                            </div>
+                          </Link>
+                          <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-50 py-5">
+                            <div className="flex justify-start mx-2">
+                              <div className="flex flex-col">
+                                <span className="lg:text-lg text-lg font-bold text-white">
+                                  {elemento.title}
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex ">
-                  {listaBlog2.slice(3).map((elemento, index) => (
-                    <div key={index} className="w-full sm:w-1/2 p-1 ">
-                      <div className="relative">
-                        <Link
-                          href={`/blog/${elemento.slug}?type=video`}
-                          style={{ color: "white" }}
-                        >
-                          <img
-                            src={elemento.image}
-                            className="lg:h-60 h-full"
-                            alt=""
-                          />
-                          <div className="absolute lg:top-[5em] lg:left-[9em] top-20 left-[10em]">
-                            <PlayCircleOutlined
-                              className="lg:text-5xl  text-2xl hover:text-gray-300"
+                    ))}
+                  </div>
+                  <div className="flex ">
+                    {listaBlog2.slice(3).map((elemento, index) => (
+                      <div key={index} className="w-full sm:w-1/2 p-1 ">
+                        <div className="relative">
+                          <Link
+                            href={`/blog/${elemento.slug}?type=video`}
+                            style={{ color: "white" }}
+                          >
+                            <img
+                              src={elemento.image}
+                              className="lg:h-60 h-full"
+                              alt=""
                             />
-                          </div>
-                        </Link>
-                        <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-50 lg:py-5 py-3">
-                          <div className="flex justify-start mx-2">
-                            <div className="flex flex-col">
-                              <span className="lg:text-2xl text-xl font-bold text-white">
-                                {elemento.title}
-                              </span>
+                            <div className="absolute lg:top-[5em] lg:left-[9em] top-20 left-[10em]">
+                              <PlayCircleOutlined className="lg:text-5xl  text-2xl hover:text-gray-300" />
+                            </div>
+                          </Link>
+                          <div className="absolute bottom-0 w-full bg-blue-600 bg-opacity-50 lg:py-5 py-3">
+                            <div className="flex justify-start mx-2">
+                              <div className="flex flex-col">
+                                <span className="lg:text-2xl text-xl font-bold text-white">
+                                  {elemento.title}
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* <Col span={24}>
               <Row justify={"space-around"} gutter={[8, 8]}>
@@ -769,33 +774,43 @@ export default function BreakingNewsContainer() {
               <br />
               <Row justify="space-around" className="relative flex-[0_0_100%]">
                 <Col span={23}>
-                  <Row justify="space-around" gutter={[8, 8]}>
-                    {listaPresentadores.map((item, i) => (
-                      <Col span={3} key={i}>
-                        <Link href={item.url} target="_blank">
-                          <Card
-                            isFooterBlurred
-                            radius="lg"
-                            className="border-none zoom "
-                            style={{ backgroundColor: "transparent" }}
-                          >
-                            <Image
-                            style={{objectFit: "cover"}}
-                              src={item.image}
-                              alt="Columnist"
-                              className="lg:h-[12em] lg:w-[10em]"
-                            />
+                  {loadingCast ? (
+                    <div className="flex justify-center py-[200px]">
+                      <Spin
+                        spinning={loadingCast}
+                        indicator={loaderIcon}
+                        size="large"
+                      />
+                    </div>
+                  ) : (
+                    <Row justify="space-around" gutter={[8, 8]}>
+                      {listaPresentadores.map((item, i) => (
+                        <Col span={3} key={i}>
+                          <Link href={item.url} target="_blank">
+                            <Card
+                              isFooterBlurred
+                              radius="lg"
+                              className="border-none zoom "
+                              style={{ backgroundColor: "transparent" }}
+                            >
+                              <Image
+                                style={{ objectFit: "cover" }}
+                                src={item.image}
+                                alt="Columnist"
+                                className="lg:h-[12em] lg:w-[10em]"
+                              />
 
-                            <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                              <p className="text-tiny text-white/80">
-                                {item.name}
-                              </p>
-                            </CardFooter>
-                          </Card>
-                        </Link>
-                      </Col>
-                    ))}
-                  </Row>
+                              <CardFooter className="justify-center before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                                <p className="text-tiny text-white/80">
+                                  {item.name}
+                                </p>
+                              </CardFooter>
+                            </Card>
+                          </Link>
+                        </Col>
+                      ))}
+                    </Row>
+                  )}
                 </Col>
               </Row>
               <br />
@@ -866,7 +881,6 @@ export default function BreakingNewsContainer() {
                       </Link>
 
                       <div
-                      
                         className={`absolute top-0 left-0 ${
                           index % 3 === 0
                             ? "bg-gradient-to-r from-blue-500 to-green-500"
@@ -879,8 +893,15 @@ export default function BreakingNewsContainer() {
                       </div>
                     </div>
                     <div className="bg-purple-600/40 rounded-b-lg">
-              
- <div className="text-xs bg-purple-900 py-1">Fecha: <strong>{format(item.createdAt, "dd 'de' LLLL 'de' yyyy", {  locale: esLocale })} </strong> | Autor  <strong> {item.autor}</strong>  </div>
+                      <div className="text-xs bg-purple-900 py-1">
+                        Fecha:{" "}
+                        <strong>
+                          {format(item.createdAt, "dd 'de' LLLL 'de' yyyy", {
+                            locale: esLocale,
+                          })}{" "}
+                        </strong>{" "}
+                        | Autor <strong> {item.autor}</strong>{" "}
+                      </div>
 
                       <div className="mx-3 pt-2">
                         <div className="text-md text-white font-bold uppercase text-center">

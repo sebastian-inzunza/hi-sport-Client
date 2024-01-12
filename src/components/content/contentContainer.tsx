@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Bebas_Neue } from "next/font/google";
-import { Row, Col } from "antd";
+import { Row, Col, Spin } from "antd";
 import { Button, Image, Card } from "@nextui-org/react";
 import Link from "next/link";
 import { getBanners } from "../../services/BannersService";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { LoadingOutlined } from "@ant-design/icons";
 
 interface DataType {
   image: string;
@@ -35,13 +36,16 @@ import { CaretRightOutlined } from "@ant-design/icons";
 
 export default function ContentContainer() {
   const [banner, setBanner] = useState<DataType[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
       const response = await getBanners();
       setBanner(response);
+       setLoading(false); // Después de cargar los datos, establece loading en false
     } catch (error) {
       console.error("Error al cargar los datos", error);
+       setLoading(false); // En caso de error, también establece loading en false
     }
   };
 
@@ -49,36 +53,46 @@ export default function ContentContainer() {
     fetchData();
   }, []);
 
+  const loaderIcon = (
+    <LoadingOutlined style={{ fontSize: "200px", color: "#8e44ad" }} />
+  ); 
 
   return (
     <>
-      <Carousel showThumbs={false} showStatus={false} showIndicators={false}>
-        {banner.map((page, index) => (
-          <div className="flex justify-center items-center mt-6" key={index}>
-            <div className="w-screen lg:h-[770px] flex justify-center items-center">
-              {/* <div className="absolute top-1 right-1 ">
-                <div className="m-2 text-white text-xl p-3 font-bold mt-4  mb-4 ml-4">
-                  ESTAMOS EN <span className="en-vivo-icon">VIVO</span>
-                </div>
-              </div> */}
+      {loading ? (
+        <div className="flex justify-center py-[300px]">
+        <Spin spinning={loading} indicator={loaderIcon} size="large" />
 
-              <img src={page.image} alt="banner1" />
-
-              {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div> */}
-
-              <Link href={page.url} target="_blank">
-                <Button
-                  className="botonInicio absolute bottom-[4.5em] left-5  lg:bottom-[152px] lg:left-[87px] lg:m-2"
-                  startContent={<CaretRightOutlined />}
-                >
-                  VER AHORA
-                </Button>
-              </Link>
+        </div>
+      ) : (
+        <Carousel showThumbs={false} showStatus={false} showIndicators={false}>
+          {banner.map((page, index) => (
+            <div className="flex justify-center items-center mt-6" key={index}>
+              <div className="w-screen lg:h-[770px] flex justify-center items-center">
+                {/* <div className="absolute top-1 right-1 ">
+            <div className="m-2 text-white text-xl p-3 font-bold mt-4  mb-4 ml-4">
+              ESTAMOS EN <span className="en-vivo-icon">VIVO</span>
             </div>
-          </div>
-          // </div>
-        ))}
-      </Carousel>
+          </div> */}
+
+                <img src={page.image} alt="banner1" />
+
+                {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-md"></div> */}
+
+                <Link href={page.url} target="_blank">
+                  <Button
+                    className="botonInicio absolute bottom-[4.5em] left-5  lg:bottom-[152px] lg:left-[87px] lg:m-2"
+                    startContent={<CaretRightOutlined />}
+                  >
+                    VER AHORA
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            // </div>
+          ))}
+        </Carousel>
+      )}
 
       <div className=" relative">
         <img
