@@ -94,10 +94,10 @@ const MyModal = ({ isOpen, onClose }) => {
         >
           <span className="text-3xl">×</span>
         </button>
-        <Link href={publicidad[2]?.url} target="_blank">
+        <Link href={publicidad[3]?.url} target="_blank">
         
         <Image
-          src={publicidad[2]?.image}
+          src={publicidad[3]?.image}
           width={600}
           height={600}
           alt="Picture of the author"
