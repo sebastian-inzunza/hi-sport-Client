@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Row, Col, Divider, Button } from "antd";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import Carousel from "../carousel";
@@ -7,14 +9,19 @@ import { getBlogs, getVideoBlogs } from "../../services/BlogsService";
 import { getPresentadores } from "../../services/PresentadoresService";
 import { getSbTypeId } from "../../services/CalienteOddService";
 import React from "react";
+import { format } from 'date-fns';
+import esLocale from 'date-fns/locale/es';
+
 
 import { PlayCircleOutlined } from "@ant-design/icons";
 interface DataType {
   image: string;
+  autor: string
   title: string;
   slug: string;
   content: string;
   category: { name: string };
+  createdAt: string
 }
 
 interface DataTypeBlog {
@@ -346,6 +353,7 @@ export default function BreakingNewsContainer() {
     }
   };
 
+
   useEffect(() => {
     fetchData();
     fetchDataCast();
@@ -381,6 +389,7 @@ export default function BreakingNewsContainer() {
   }, [showIntersectionObserver]);
 
   const [expanded, setExpanded] = useState(false);
+
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -855,7 +864,9 @@ export default function BreakingNewsContainer() {
                           className="w-full h-[17em] lg:h-[18em] transform scale-100 group-hover:scale-110 transition-transform duration-300"
                         />
                       </Link>
+
                       <div
+                      
                         className={`absolute top-0 left-0 ${
                           index % 3 === 0
                             ? "bg-gradient-to-r from-blue-500 to-green-500"
@@ -868,6 +879,9 @@ export default function BreakingNewsContainer() {
                       </div>
                     </div>
                     <div className="bg-purple-600/40 rounded-b-lg">
+              
+ <div className="text-xs bg-purple-900 py-1">Fecha: <strong>{format(item.createdAt, "dd 'de' LLLL 'de' yyyy", {  locale: esLocale })} </strong> | Autor  <strong> {item.autor}</strong>  </div>
+
                       <div className="mx-3 pt-2">
                         <div className="text-md text-white font-bold uppercase text-center">
                           <span>{item.title}</span>

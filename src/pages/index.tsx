@@ -6,8 +6,22 @@ import ProgramacionContainer from '@/components/content/programacionContainer';
 import BreakingNewsContainer from '../components/content/breakingNewsContainer';
 import Footercontenido from "@/components/FooterContainer/footercontenido"
 import {PrivacyNotice} from "@/components/privacity/PrivacyNotice"
+import { useState } from 'react';
+import Popup from '@/components/Popup';
+import NewsLetterModal from '@/components/Popup';
+import MyModal from '@/components/Popup';
 
 export default function Home() {
+
+  const [modalIsOpen, setModalIsOpen] = useState(true);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   return (
     <>
       <Head>
@@ -80,12 +94,14 @@ export default function Home() {
             />
           </a>
         </div>*/}
+      <MyModal isOpen={modalIsOpen} onClose={closeModal} />
       <div className='background-image' />
       <HeaderContainer />
       {/* <ContentContainer /> */}
+      
       <ContentContainer />
       <BreakingNewsContainer />
-      {/* <ProgramacionContainer /> */}
+      <ProgramacionContainer />
       <Col xs={0} md={24}>
         <br />
         <br />

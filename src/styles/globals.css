@@ -450,3 +450,51 @@ body {
 .icon-container {
   transition: all 0.3s ease; 
 }
+
+.newsletter-popup {
+  display: flex;
+  max-width: 72rem;
+  text-align: right;
+  background-position: 60% center;
+  background-size: cover;
+  border-radius: 1rem;
+  display: inline-block;
+  
+}
+
+
+.newsletter-popup {
+  top: -25px;
+  right: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+.newsletter-modal-overlay {
+  z-index: 10000 !important;
+}
+
+.ReactModal__Content {
+  position: relative;
+  margin: auto;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ReactModal__Content {
+  transition: 0.3s;
+  transition-delay: 0.03s;
+
+  &.newsletter-popup {
+    transform: translateY(-20px) perspective(600px) rotateX(20deg);
+
+    &.ReactModal__Content--after-open {
+      transform: translateY(0) perspective(600px) rotateX(0);
+    }
+  }
+
+
+
+ 
+}
