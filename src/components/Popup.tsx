@@ -94,7 +94,7 @@ const MyModal = ({ isOpen, onClose }) => {
         >
           <span className="text-3xl">×</span>
         </button>
-        <Link href={publicidad[3]?.url} target="_blank">
+        <Link href={publicidad[3]?.url ? publicidad[3]?.url : "/"} target="_blank">
         
         <Image
           src={publicidad[3]?.image}

@@ -366,7 +366,7 @@ export default function BreakingNewsContainer() {
     fetchData();
     fetchDataCast();
     fetchDataPrueba();
-    fetchDataXML();
+    //fetchDataXML();
   }, []);
 
   useEffect(() => {

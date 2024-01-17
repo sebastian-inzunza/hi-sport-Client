@@ -3,7 +3,7 @@ import axios from "axios";
 export const getPublicidad = async () => {
   try {
     const response = await axios.get(
-      `https://hi-sports-v1-5056641427c0.herokuapp.com/publicity`
+      `https://hi-sports-fecdbeff6cd3.herokuapp.com/publicity`
     );
 
     if (response.status === 200) {
