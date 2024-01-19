@@ -115,7 +115,7 @@ function MyPage({ data }: { data: any }) {
             <div className="flex justify-between mt-20">
               <div className="w-1/6 mx-2 ">
                 <div className="hidden md:block">
-                  {publicidad[0]?.url && (
+                  {publicidad[0]?.url ? (
                     <Link
                       href={publicidad[0].url}
                       passHref={true}
@@ -127,7 +127,7 @@ function MyPage({ data }: { data: any }) {
                         className="relative w-full"
                       />
                     </Link>
-                  )}
+                  ) : null}
                 </div>
                 {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
@@ -273,7 +273,7 @@ function MyPage({ data }: { data: any }) {
 
                 <div className="mt-10 container relative w-full">
                   <div className="hidden md:block">
-                    {publicidad[2]?.url && (
+                    {publicidad[2]?.url ? (
                       <Link
                         href={publicidad[2].url}
                         passHref={true}
@@ -285,14 +285,16 @@ function MyPage({ data }: { data: any }) {
                           className="relative w-full"
                         />
                       </Link>
-                    )}
+                    ): null}
                   </div>
                 </div>
               </div>
 
               <div className="w-1/6 mx-2">
                 <div className="hidden md:block">
-                  {publicidad[0]?.url && (
+
+
+                  {publicidad[0]?.url ?  (
                     <Link
                       href={publicidad[1].url}
                       passHref={true}
@@ -304,7 +306,7 @@ function MyPage({ data }: { data: any }) {
                         className="relative w-full"
                       />
                     </Link>
-                  )}
+                  ): null}
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-
 // @ts-nocheck
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
@@ -7,11 +6,9 @@ import Image from "next/image";
 import { getPublicidad } from "@/services/publicidadService";
 import Link from "next/link";
 
-
 // Establece la aplicación para la accesibilidad del lector de pantalla
 
 const MyModal = ({ isOpen, onClose }) => {
-
   interface DataType {
     image: string;
     url: string;
@@ -39,7 +36,6 @@ const MyModal = ({ isOpen, onClose }) => {
     return () => {
       timer && clearTimeout(timer);
     };
-
   }, []);
 
   const modalStyles: {} = {
@@ -47,13 +43,11 @@ const MyModal = ({ isOpen, onClose }) => {
       position: "relative",
     },
     overlay: {
-      background: "rgba(75, 0, 130, 0.4)", 
+      background: "rgba(75, 0, 130, 0.4)",
       display: "flex",
     },
   };
 
-
-  console.log(publicidad)
   const [content, setContent] = useState("");
 
   const handleInputChange = (e) => {
@@ -75,38 +69,40 @@ const MyModal = ({ isOpen, onClose }) => {
   }
 
   return (
-    
-    <Modal
-      ariaHideApp={false}
-      isOpen={modalState}
-      style={modalStyles}
-      onRequestClose={closeModal}
-      shouldReturnFocusAfterClose={false}
-      className="newsletter-popup bg-img"
-    >
-
-      <div id="newsletter-popup">
-        <button
-          title="Close (Esc)"
-          type="button"
-          className="mfp-close"
-          onClick={closeModal}
+    <>
+      {publicidad.length >= 3 ? (
+        <Modal
+          ariaHideApp={false}
+          isOpen={modalState}
+          style={modalStyles}
+          onRequestClose={closeModal}
+          shouldReturnFocusAfterClose={false}
+          className="newsletter-popup bg-img"
         >
-          <span className="text-3xl">×</span>
-        </button>
-        <Link href={publicidad[3]?.url ? publicidad[3]?.url : "/"} target="_blank">
-        
-        <Image
-          src={publicidad[3]?.image}
-          width={600}
-          height={600}
-          alt="Picture of the author"
-        />
-        </Link>
-
-       
-      </div>
-    </Modal>
+          <div id="newsletter-popup">
+            <button
+              title="Close (Esc)"
+              type="button"
+              className="mfp-close"
+              onClick={closeModal}
+            >
+              <span className="text-3xl">×</span>
+            </button>
+            <Link
+              href={publicidad[3]?.url ? publicidad[3]?.url : "/"}
+              target="_blank"
+            >
+              <Image
+                src={publicidad[3]?.image}
+                width={600}
+                height={600}
+                alt="Picture of the author"
+              />
+            </Link>
+          </div>
+        </Modal>
+      ) : null}
+    </>
   );
 };
 
