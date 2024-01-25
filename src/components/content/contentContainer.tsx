@@ -13,25 +13,6 @@ interface DataType {
   url: string;
 }
 
-// const listVideoLive = [
-//   {
-//     imgVideo:
-//       "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-//     url: "https://www.youtube.com/watch?v=_znd2EKiTUc",
-//   },
-//   {
-//     imgVideo:
-//       "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-
-//     url: "https://www.youtube.com/watch?v=twOMe6o1eLU",
-//   },
-//   {
-//     imgVideo:
-//       "https://imgs.search.brave.com/NR4L1TQawpQkMfBVfB6eVMj7_al0JCWa6sAYfQKVaYQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jbm5l/c3Bhbm9sLmNubi5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDkvMjIwOTMw/MTY1OTQzLTAxLW5l/eW1hci5qcGc_cXVh/bGl0eT0xMDAmc3Ry/aXA9aW5mbw",
-//     url: "https://www.youtube.com/watch?v=PSanJ5swYBM",
-//   },
-// ];
-
 import { CaretRightOutlined } from "@ant-design/icons";
 
 export default function ContentContainer() {

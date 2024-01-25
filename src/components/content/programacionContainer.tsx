@@ -1,4 +1,4 @@
-//@ts-n
+//@ts-nocheck
 import React, { useEffect, useState } from "react";
 import {
   Card,
@@ -98,7 +98,7 @@ export default function ProgramacionContainer() {
       .flat();
     return { hora, horario, eventos };
   });
-  console.log(rows)
+  // console.log(rows)
 
   return (
     <>

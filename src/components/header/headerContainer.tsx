@@ -88,23 +88,7 @@ export default function HeaderContainer() {
         className=" fondoNav items-center"
         onMenuOpenChange={setIsMenuOpen}
       >
-        {/* <div className="flex items-center lg:hidden ">
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="sm:hidden"
-            style={{ color: "white" }}
-          />
-          <div className=" lg:hidden flex items-center ml-3 ">
-            <img
-              className="w-16"
-              src="https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png"
-              alt="logo"
-            />
-            <span className={`titleContent ${bebas.className}  text-xl `}>
-              #Todo es posible
-            </span>
-          </div>
-        </div> */}
+
 
         <div className="items-center flex">
           <Button
@@ -134,14 +118,6 @@ export default function HeaderContainer() {
             </span>
           </div>
         </div>
-
-        {/* 
-                <NavbarContent className='justify-between' justify='start'>
-                    <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
-                    <NavbarBrand>
-                        <Image className='logoHeader' src='https://sissamx.com.mx/hi-sports/images/logos/HI_SPORTS_LOGO.png' alt='logo' />
-                    </NavbarBrand>
-                </NavbarContent> */}
 
         <div className="hidden sm:flex gap-11 itemNavBar">
           <NavbarItem>

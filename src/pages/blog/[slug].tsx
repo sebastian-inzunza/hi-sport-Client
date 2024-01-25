@@ -44,6 +44,7 @@ function MyPage({ data }: { data: any }) {
   interface DataType {
     image: string;
     url: string;
+    company: string;
   }
   interface DataTypeNotesRelated {
     image: string;
@@ -60,10 +61,10 @@ function MyPage({ data }: { data: any }) {
     try {
       const response = await getPublicidad();
       setPublicidad(response);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       console.error("Error al cargar los datos", error);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -83,9 +84,10 @@ function MyPage({ data }: { data: any }) {
     }
   }, []);
 
+  // console.log(publicidad);
   const loaderIcon = (
     <LoadingOutlined style={{ fontSize: "200px", color: "#8e44ad" }} />
-  ); 
+  );
 
   return (
     <main>
@@ -104,9 +106,9 @@ function MyPage({ data }: { data: any }) {
           <>
             <div className="background-image" />
 
-          <div className="flex justify-center py-[300px]">
-            <Spin spinning={loading} indicator={loaderIcon} size="large" />
-          </div>
+            <div className="flex justify-center py-[300px]">
+              <Spin spinning={loading} indicator={loaderIcon} size="large" />
+            </div>
           </>
         ) : (
           <>
@@ -115,7 +117,25 @@ function MyPage({ data }: { data: any }) {
             <div className="flex justify-between mt-20">
               <div className="w-1/6 mx-2 ">
                 <div className="hidden md:block">
-                  {publicidad[0]?.url ? (
+                  {publicidad.map((element, index) => (
+                    <>
+                      {element.company === "Lateral" ? (
+                        <Link
+                          key={index}
+                          href={element.url}
+                          passHref={true}
+                          target="_blank"
+                        >
+                          <img
+                            src={element?.image}
+                            alt="Publicidad"
+                            className="relative w-full"
+                          />
+                        </Link>
+                      ) : null}
+                    </>
+                  ))}
+                  {/* {publicidad[0]?.url ? (
                     <Link
                       href={publicidad[0].url}
                       passHref={true}
@@ -127,7 +147,7 @@ function MyPage({ data }: { data: any }) {
                         className="relative w-full"
                       />
                     </Link>
-                  ) : null}
+                  ) : null} */}
                 </div>
                 {/* <div className='mt-[800px]'>
                         <Link href='https://www.caliente.mx/' target='_blank'>
@@ -273,40 +293,48 @@ function MyPage({ data }: { data: any }) {
 
                 <div className="mt-10 container relative w-full">
                   <div className="hidden md:block">
-                    {publicidad[2]?.url ? (
-                      <Link
-                        href={publicidad[2].url}
-                        passHref={true}
-                        target="_blank"
-                      >
-                        <img
-                          src={publicidad[2]?.image}
-                          alt="Publicidad"
-                          className="relative w-full"
-                        />
-                      </Link>
-                    ): null}
+                    {publicidad.map((element, index) => (
+                      <>
+                        {element.company === "Bottom" ? (
+                          <Link
+                            key={index}
+                            href={element.url}
+                            passHref={true}
+                            target="_blank"
+                          >
+                            <img
+                              src={element?.image}
+                              alt="Publicidad"
+                              className="relative w-full"
+                            />
+                          </Link>
+                        ) : null}
+                      </>
+                    ))}
                   </div>
                 </div>
               </div>
 
               <div className="w-1/6 mx-2">
                 <div className="hidden md:block">
-
-
-                  {publicidad[0]?.url ?  (
-                    <Link
-                      href={publicidad[1].url}
-                      passHref={true}
-                      target="_blank"
-                    >
-                      <img
-                        src={publicidad[1]?.image}
-                        alt="Publicidad"
-                        className="relative w-full"
-                      />
-                    </Link>
-                  ): null}
+                  {publicidad.map((element, index) => (
+                    <>
+                      {element.company === "Lateral" ? (
+                        <Link
+                          key={index}
+                          href={element.url}
+                          passHref={true}
+                          target="_blank"
+                        >
+                          <img
+                            src={element?.image}
+                            alt="Publicidad"
+                            className="relative w-full"
+                          />
+                        </Link>
+                      ) : null}
+                    </>
+                  ))}
                 </div>
               </div>
             </div>

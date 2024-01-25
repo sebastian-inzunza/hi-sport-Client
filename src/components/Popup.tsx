@@ -12,6 +12,7 @@ const MyModal = ({ isOpen, onClose }) => {
   interface DataType {
     image: string;
     url: string;
+    company: string;
   }
 
   const [modalState, setModalState] = useState(false);
@@ -70,38 +71,42 @@ const MyModal = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {publicidad.length >= 3 ? (
-        <Modal
-          ariaHideApp={false}
-          isOpen={modalState}
-          style={modalStyles}
-          onRequestClose={closeModal}
-          shouldReturnFocusAfterClose={false}
-          className="newsletter-popup bg-img"
-        >
-          <div id="newsletter-popup">
-            <button
-              title="Close (Esc)"
-              type="button"
-              className="mfp-close"
-              onClick={closeModal}
+      {publicidad.map((element, index) => (
+        <>
+          {element.company === "Modal" ? (
+            <Modal
+              ariaHideApp={false}
+              isOpen={modalState}
+              style={modalStyles}
+              onRequestClose={closeModal}
+              shouldReturnFocusAfterClose={false}
+              className="newsletter-popup bg-img"
             >
-              <span className="text-3xl">×</span>
-            </button>
-            <Link
-              href={publicidad[3]?.url ? publicidad[3]?.url : "/"}
-              target="_blank"
-            >
-              <Image
-                src={publicidad[3]?.image}
-                width={600}
-                height={600}
-                alt="Picture of the author"
-              />
-            </Link>
-          </div>
-        </Modal>
-      ) : null}
+              <div id="newsletter-popup">
+                <button
+                  title="Close (Esc)"
+                  type="button"
+                  className="mfp-close"
+                  onClick={closeModal}
+                >
+                  <span className="text-3xl">×</span>
+                </button>
+                <Link
+                  href={element?.url}
+                  target="_blank"
+                >
+                  <Image
+                    src={element?.image}
+                    width={600}
+                    height={600}
+                    alt="Picture of the author"
+                  />
+                </Link>
+              </div>
+            </Modal>
+          ) : null}
+        </>
+      ))}
     </>
   );
 };

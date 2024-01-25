@@ -11,7 +11,7 @@ export const getSbTypeId = () => {
       return resp.text()
     })
     .then(function(data){
-      console.log(data.ContentAPI);
+      // console.log(data.ContentAPI);
     })
     .catch(function(error) {
       console.error('Error en la solicitud fetch:', error);
